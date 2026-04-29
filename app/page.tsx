@@ -136,10 +136,10 @@ function HeroSection({ hp, imgs, stats }: { hp: HomepageData; imgs: SiteImages; 
       }} />
 
       {/* Content */}
-      <div className="relative container-xl" style={{ width: '100%', zIndex: 1, paddingTop: '4rem', paddingBottom: '4rem' }}>
+      <div className="relative container-xl" style={{ width: '100%', zIndex: 1, paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
 
         {/* Eyebrow — label + extending rule */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '44px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}>
           <span style={{
             fontFamily: 'var(--font-heading)', fontSize: '0.6rem', fontWeight: 700,
             letterSpacing: '0.32em', textTransform: 'uppercase',
@@ -153,7 +153,7 @@ function HeroSection({ hp, imgs, stats }: { hp: HomepageData; imgs: SiteImages; 
         {/* Headline — big editorial type */}
         <h1 style={{
           fontFamily: 'var(--font-heading)',
-          fontSize: 'clamp(3.6rem, 8vw, 9rem)',
+          fontSize: 'clamp(2.4rem, 8vw, 9rem)',
           fontWeight: 800,
           lineHeight: 0.96,
           letterSpacing: '-0.04em',
@@ -166,24 +166,21 @@ function HeroSection({ hp, imgs, stats }: { hp: HomepageData; imgs: SiteImages; 
         </h1>
 
         {/* Orange rule */}
-        <div style={{ width: '52px', height: '3px', background: '#F57C00', margin: '36px 0' }} />
+        <div style={{ width: '52px', height: '3px', background: '#F57C00', margin: '24px 0' }} />
 
         {/* Bottom row — subtext + CTAs on left, key stat on right */}
-        <div style={{
-          display: 'flex', alignItems: 'flex-end',
-          justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px',
-        }}>
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
 
           {/* Left */}
           <div style={{ maxWidth: '460px' }}>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: '0.95rem',
               lineHeight: 1.8, color: 'rgba(255,255,255,0.52)',
-              margin: '0 0 32px',
+              margin: '0 0 28px',
             }}>
               {hp.hero_subheadline}
             </p>
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div className="flex flex-wrap gap-3 items-center">
               <Link href={hp.hero_cta_primary_url} className="btn-orange">
                 {hp.hero_cta_primary_label} <ArrowRight size={14} />
               </Link>
@@ -194,18 +191,18 @@ function HeroSection({ hp, imgs, stats }: { hp: HomepageData; imgs: SiteImages; 
           </div>
 
           {/* Right — single prominent stat */}
-          <div style={{ flexShrink: 0, textAlign: 'right' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: '4px' }}>
+          <div className="flex-shrink-0">
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontWeight: 800,
-                fontSize: 'clamp(3.5rem, 6vw, 6rem)',
+                fontSize: 'clamp(3rem, 6vw, 6rem)',
                 lineHeight: 1, letterSpacing: '-0.04em', color: '#FFFFFF',
               }}>
                 {keyStat.value}
               </span>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontWeight: 800,
-                fontSize: 'clamp(1.5rem, 2.5vw, 2.5rem)',
+                fontSize: 'clamp(1.2rem, 2.5vw, 2.5rem)',
                 color: '#F57C00', lineHeight: 1,
               }}>
                 {keyStat.unit}
