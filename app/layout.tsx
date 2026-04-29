@@ -42,7 +42,9 @@ export async function generateMetadata(): Promise<Metadata> {
       twitter:     { card: 'summary_large_image' },
       icons:       { icon: s.favicon ? (getAssetUrl(s.favicon) ?? '/favicon.ico') : '/favicon.ico' },
     };
-  } catch {
+  } catch (err) {
+    const msg = err && typeof err === 'object' && 'message' in err ? (err as { message: string }).message : String(err);
+    console.warn('[Directus] generateMetadata fallback — could not fetch global_settings:', msg);
     return {
       title:       { default: 'Prestige Mining and Energy', template: '%s — Prestige Mining and Energy' },
       description: 'Global leader in large-scale mining operations and sustainable energy solutions.',
@@ -54,7 +56,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   let settings = null;
-  try { settings = await getGlobalSettings(); } catch { /* render with fallbacks */ }
+  try { settings = await getGlobalSettings(); } catch (err) {
+    const msg = err && typeof err === 'object' && 'message' in err ? (err as { message: string }).message : String(err);
+    console.warn('[Directus] RootLayout fallback — could not fetch global_settings:', msg);
+  }
 
   return (
     <html

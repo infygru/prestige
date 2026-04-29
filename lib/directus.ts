@@ -89,17 +89,15 @@ type Schema = {
 };
 
 type TypedClient = DirectusClient<Schema> & RestClient<Schema> & StaticTokenClient<Schema>;
-let _client: TypedClient | null = null;
 
 function getClient(): TypedClient {
-  if (_client) return _client;
   const url   = process.env.DIRECTUS_URL;
   if (!url) throw new Error('DIRECTUS_URL is not set');
   const token = process.env.DIRECTUS_STATIC_TOKEN;
-  _client = (token
-    ? createDirectus<Schema>(url).with(staticToken(token)).with(rest())
-    : createDirectus<Schema>(url).with(rest())) as TypedClient;
-  return _client;
+  const restPlugin = rest({ onRequest: (options) => ({ ...options, cache: 'no-store' }) });
+  return (token
+    ? createDirectus<Schema>(url).with(staticToken(token)).with(restPlugin)
+    : createDirectus<Schema>(url).with(restPlugin)) as TypedClient;
 }
 
 // ─── Asset URL ────────────────────────────────────────────────────────────────
