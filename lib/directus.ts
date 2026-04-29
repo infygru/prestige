@@ -118,43 +118,43 @@ export function getAssetUrl(
 
 // ─── Queries ──────────────────────────────────────────────────────────────────
 
-export const getGlobalSettings  = () => getClient().request(readSingleton('global_settings'));
-export const getSiteImages      = () => getClient().request(readSingleton('site_images'));
-export const getHomepageData    = () => getClient().request(readSingleton('homepage'));
+export const getGlobalSettings  = async () => getClient().request(readSingleton('global_settings'));
+export const getSiteImages      = async () => getClient().request(readSingleton('site_images'));
+export const getHomepageData    = async () => getClient().request(readSingleton('homepage'));
 
-export const getFeaturedServices = () =>
+export const getFeaturedServices = async () =>
   getClient().request(readItems('services', { filter: { status: { _eq: 'published' }, featured: { _eq: true } }, sort: ['sort'], limit: 6 }));
 
-export const getOperationsStats = () =>
+export const getOperationsStats = async () =>
   getClient().request(readItems('operations_stats', { filter: { status: { _eq: 'published' } }, sort: ['sort'] }));
 
-export const getLatestInsights = (limit = 3) =>
+export const getLatestInsights = async (limit = 3) =>
   getClient().request(readItems('press_insights', {
     filter: { status: { _eq: 'published' } }, sort: ['-published_date'], limit,
     fields: ['id', 'title', 'slug', 'category', 'excerpt', 'cover_image', 'published_date', 'author', 'featured'] as (keyof PressInsight)[],
   }));
 
-export const getGalleryItems = () =>
+export const getGalleryItems = async () =>
   getClient().request(readItems('gallery', { filter: { status: { _eq: 'published' } }, sort: ['sort'], limit: 8 }));
 
-export const getNavigation = () =>
+export const getNavigation = async () =>
   getClient().request(readItems('navigation', { filter: { status: { _eq: 'published' } }, sort: ['sort'] }));
 
-export const getAllServices = () =>
+export const getAllServices = async () =>
   getClient().request(readItems('services', { filter: { status: { _eq: 'published' } }, sort: ['sort'] }));
 
-export const getServicesBySector = (sector: 'mining' | 'energy') =>
+export const getServicesBySector = async (sector: 'mining' | 'energy') =>
   getClient().request(readItems('services', { filter: { status: { _eq: 'published' }, sector: { _eq: sector } }, sort: ['sort'] }));
 
-export const getServiceBySlug = (slug: string) =>
+export const getServiceBySlug = async (slug: string) =>
   getClient().request(readItems('services', { filter: { status: { _eq: 'published' }, slug: { _eq: slug } }, limit: 1 }))
     .then(r => r[0] ?? null);
 
-export const getAllInsights = (limit = 50) =>
+export const getAllInsights = async (limit = 50) =>
   getClient().request(readItems('press_insights', {
     filter: { status: { _eq: 'published' } }, sort: ['-published_date'], limit,
   }));
 
-export const getInsightBySlug = (slug: string) =>
+export const getInsightBySlug = async (slug: string) =>
   getClient().request(readItems('press_insights', { filter: { status: { _eq: 'published' }, slug: { _eq: slug } }, limit: 1 }))
     .then(r => r[0] ?? null);
