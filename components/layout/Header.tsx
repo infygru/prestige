@@ -69,7 +69,7 @@ export default function Header({ settings }: HeaderProps) {
         <Link href="/" style={{ lineHeight: 0, flexShrink: 0 }}>
           <Image src="/prestige-me-logo.jpg" alt="Prestige Mining & Energy"
             width={160} height={40}
-            style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+            style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
             priority
           />
         </Link>
