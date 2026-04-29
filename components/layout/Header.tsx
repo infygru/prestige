@@ -74,8 +74,9 @@ export default function Header({ settings }: HeaderProps) {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav ref={dropRef} className="hidden lg:flex" style={{ alignItems: 'center', gap: '0' }}
+        {/* Desktop nav + CTA grouped to the right */}
+        <div ref={dropRef} className="hidden lg:flex" style={{ alignItems: 'center', gap: '0', marginLeft: 'auto' }}>
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0' }}
           aria-label="Primary">
           {NAV.map((item) => (
             <div key={item.href} style={{ position: 'relative' }}>
@@ -140,7 +141,7 @@ export default function Header({ settings }: HeaderProps) {
         </nav>
 
         {/* CTA */}
-        <div className="hidden lg:flex" style={{ alignItems: 'center' }}>
+        <div style={{ marginLeft: '12px' }}>
           <Link href="/contact"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
@@ -155,6 +156,7 @@ export default function Header({ settings }: HeaderProps) {
             Get in Touch <ArrowRight size={12} />
           </Link>
         </div>
+        </div>{/* end right group */}
 
         {/* Mobile toggle */}
         <button onClick={() => setMobileOpen(o => !o)} className="lg:hidden"
