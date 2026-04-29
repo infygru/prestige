@@ -17,7 +17,7 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'Industrial Excellence in Mining & Energy',
-  description: 'Prestige Mining and Energy — world-class extraction, processing, and sustainable energy assets across four continents.',
+  description: 'Prestige Mining and Energy — world-class extraction, processing, and sustainable energy assets across four countries.',
 };
 
 const fetchHP       = cache(getHomepageData);
@@ -32,12 +32,12 @@ const fetchGallery  = cache(getGalleryItems);
 const FB_HP: HomepageData = {
   id: 1,
   hero_headline: 'Building Resources.\nPowering Progress.',
-  hero_subheadline: 'Prestige Mining and Energy extracts critical minerals and generates clean power across four continents — combining industrial precision with a genuine commitment to a lower-carbon future.',
+  hero_subheadline: 'Prestige Mining and Energy extracts critical minerals and generates clean power across four countries — combining industrial precision with a genuine commitment to a lower-carbon future.',
   hero_video_url: null, hero_background_image: null,
   hero_cta_primary_label:   'Explore Operations', hero_cta_primary_url:   '/mining',
   hero_cta_secondary_label: 'Our Story',          hero_cta_secondary_url: '/about',
   about_overline:  'Since 1984',
-  about_headline:  'From One Mine to Four Continents',
+  about_headline:  'From One Mine to Four Countries',
   about_body: 'Founded in Perth in 1984, Prestige Mining began with a single open-cut iron ore operation in the Pilbara. A decade of disciplined reinvestment expanded us into copper in Zambia, gold in Ghana, and thermal coal in Indonesia — before the 2010s brought a decisive pivot toward clean energy.\n\nToday, our renewable portfolio generates more electricity than our mine sites consume. The surplus — sold to regional grids under long-term PPAs — has become one of our fastest-growing revenue streams, and a template for how resource companies can lead, not merely adapt to, the energy transition.',
   about_cta_label: 'Read Our Full Story', about_cta_url: '/about',
   sectors_headline:      'Two businesses. One integrated model.',
@@ -60,7 +60,7 @@ const FB_IMGS: SiteImages = {
 };
 
 const FB_STATS: OperationStat[] = [
-  { id: 1, status: 'published', sort: 1, value: '4',      unit: 'Continents', label: 'Global Presence',       description: null, icon_image: null },
+  { id: 1, status: 'published', sort: 1, value: '4',      unit: 'Countries',  label: 'Global Presence',       description: null, icon_image: null },
   { id: 2, status: 'published', sort: 2, value: '48',     unit: 'Mt/yr',      label: 'Extraction Capacity',    description: null, icon_image: null },
   { id: 3, status: 'published', sort: 3, value: '2.4',    unit: 'GW',         label: 'Clean Energy Portfolio', description: null, icon_image: null },
   { id: 4, status: 'published', sort: 4, value: '12,000', unit: '+',          label: 'Employees Worldwide',    description: null, icon_image: null },
@@ -160,9 +160,21 @@ function HeroSection({ hp, imgs, stats }: { hp: HomepageData; imgs: SiteImages; 
           color: '#FFFFFF',
           margin: 0,
         }}>
-          {hp.hero_headline.split('\n').map((line, i) => (
-            <span key={i} style={{ display: 'block' }}>{line}</span>
-          ))}
+          {hp.hero_headline.split('\n').map((line, i) => {
+            if (line.includes('|')) {
+              const parts = line.split('|').map(p => p.replace(/\./g, ''));
+              return (
+                <span key={i} style={{ display: 'block' }}>
+                  {parts.map((part, j) => (
+                    j < parts.length - 1
+                      ? <span key={j}>{part}<br className="sm:hidden" />{' '}</span>
+                      : <span key={j}>{part}</span>
+                  ))}
+                </span>
+              );
+            }
+            return <span key={i} style={{ display: 'block' }}>{line.replace(/\./g, '')}</span>;
+          })}
         </h1>
 
         {/* Orange rule */}
@@ -286,7 +298,7 @@ function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
 
             {/* Milestones */}
             <div className="mt-8 grid grid-cols-3 gap-4 border-y py-7" style={{ borderColor: '#F0F0F0' }}>
-              {[['1984', 'Founded'], ['22+', 'Active Sites'], ['4', 'Continents']].map(([val, lbl]) => (
+              {[['1984', 'Founded'], ['22+', 'Active Sites'], ['4', 'Countries']].map(([val, lbl]) => (
                 <div key={lbl}>
                   <div style={{
                     fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2rem', lineHeight: 1,
