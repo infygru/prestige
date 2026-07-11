@@ -162,13 +162,12 @@ export default function HeroSection({ imgUrl }: { imgUrl: string }) {
               </motion.span>
             </div>
 
-            {/* Line 2: stroke/outline only — modern, unexpected */}
+            {/* Line 2: solid white */}
             <div style={{ overflow: 'hidden' }}>
               <motion.span variants={maskUp} style={{
                 display: 'block',
                 fontSize: 'clamp(3rem, 6vw, 7rem)',
-                color: 'transparent',
-                WebkitTextStroke: '2px rgba(255,255,255,0.55)',
+                color: '#FFFFFF',
               }}>
                 Extraction.
               </motion.span>
