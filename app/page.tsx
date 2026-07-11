@@ -719,7 +719,7 @@ export default async function HomePage() {
   const heroImgUrl =
     getAssetUrl(imgs.hero_background,    { width: 1400, height: 1000, fit: 'cover', quality: 88 }) ??
     getAssetUrl(hp.hero_background_image,{ width: 1400, height: 1000, fit: 'cover', quality: 88 }) ??
-    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85';
+    'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1400&q=85';
 
   return (
     <>
