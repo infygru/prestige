@@ -51,7 +51,7 @@ const FB_HP: HomepageData = {
 
 const FB_IMGS: SiteImages = {
   id: 1,
-  hero_background:       'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=85',
+  hero_background:       'https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=1600&q=85',
   hero_overlay_image:    null,
   about_image:           'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=85',
   mining_sector_image:   'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80',
