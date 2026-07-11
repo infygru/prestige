@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const CAT_META: Record<InsightCategory, { label: string; bg: string; color: string }> = {
-  press_release:    { label: 'Press Release',    bg: '#FFF3E0', color: '#E65100' },
+  press_release:    { label: 'Press Release',    bg: '#E3F6FA', color: '#007A96' },
   industry_insight: { label: 'Industry Insight', bg: '#F5F5F5', color: '#333333' },
   project_update:   { label: 'Project Update',   bg: '#E8F5E9', color: '#2E7D32' },
   sustainability:   { label: 'Sustainability',   bg: '#E8F5E9', color: '#2E7D32' },
@@ -66,8 +66,8 @@ export default async function InsightsPage() {
                   {getAssetUrl(featured.cover_image, { width: 960, height: 600, fit: 'cover', quality: 85 }) ? (
                     <Image src={getAssetUrl(featured.cover_image, { width: 960, height: 600, fit: 'cover' })!} alt={featured.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   ) : (
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg,#1A1A1A,#2A1800)' }}>
-                      <div className="absolute inset-0 opacity-30" style={{ background: 'linear-gradient(135deg,transparent,rgba(245,124,0,0.5))' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg,#0D1E35,#0a1e38)' }}>
+                      <div className="absolute inset-0 opacity-30" style={{ background: 'linear-gradient(135deg,transparent,rgba(0,168,196,0.5))' }} />
                     </div>
                   )}
                 </div>
@@ -84,7 +84,7 @@ export default async function InsightsPage() {
                   </h2>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#6B6B6B', lineHeight: 1.7 }}>{featured.excerpt}</p>
                   <div className="mt-6 flex items-center gap-2 transition-all duration-200 group-hover:gap-3"
-                    style={{ fontFamily: 'var(--font-heading)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00' }}>
+                    style={{ fontFamily: 'var(--font-heading)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4' }}>
                     Read Article <ArrowRight size={13} />
                   </div>
                 </div>
@@ -112,12 +112,12 @@ export default async function InsightsPage() {
                       {imgUrl ? (
                         <Image src={imgUrl} alt={item.title} fill sizes="(min-width:1024px) 33vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                       ) : (
-                        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg,#1A1A1A,#2A1800)' }}>
-                          <div className="absolute inset-0 opacity-20" style={{ background: 'linear-gradient(135deg,transparent,rgba(245,124,0,0.5))' }} />
+                        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg,#0D1E35,#0a1e38)' }}>
+                          <div className="absolute inset-0 opacity-20" style={{ background: 'linear-gradient(135deg,transparent,rgba(0,168,196,0.5))' }} />
                         </div>
                       )}
                       <div className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
-                        style={{ background: 'linear-gradient(90deg,#E65100,#FF9800)' }} />
+                        style={{ background: 'linear-gradient(90deg,#007A96,#79B82A)' }} />
                     </div>
                     <div className="flex flex-1 flex-col p-6">
                       <div className="mb-3 flex items-center gap-3 flex-wrap">
@@ -133,7 +133,7 @@ export default async function InsightsPage() {
                       </h3>
                       <p className="text-xs leading-loose mb-4" style={{ color: '#757575' }}>{item.excerpt}</p>
                       <div className="mt-auto flex items-center gap-1.5 border-t pt-4 transition-all duration-200 group-hover:gap-2.5"
-                        style={{ borderColor: '#F5F5F5', fontFamily: 'var(--font-heading)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00' }}>
+                        style={{ borderColor: '#F5F5F5', fontFamily: 'var(--font-heading)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4' }}>
                         Read More <ArrowRight size={12} />
                       </div>
                     </div>

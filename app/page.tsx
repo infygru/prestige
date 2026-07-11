@@ -3,8 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, ChevronRight, Pickaxe, Zap, BarChart3, Globe2, ShieldCheck, Leaf } from 'lucide-react';
 import { cache } from 'react';
-import AnimateIn from '@/components/ui/AnimateIn';
-import CountUp   from '@/components/ui/CountUp';
+import AnimateIn    from '@/components/ui/AnimateIn';
+import CountUp      from '@/components/ui/CountUp';
+import HeroSection  from '@/components/ui/HeroSection';
 import {
   getHomepageData, getSiteImages, getOperationsStats,
   getLatestInsights, getFeaturedServices, getGalleryItems,
@@ -16,8 +17,8 @@ import {
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'Industrial Excellence in Mining & Energy',
-  description: 'Prestige Mining and Energy — world-class extraction, processing, and sustainable energy assets across four countries.',
+  title: 'Critical Minerals | Industrial Scale Mining',
+  description: 'Prestige Mining — world-class extraction of iron ore, copper, gold and nickel across Australia, West Africa, and beyond.',
 };
 
 const fetchHP       = cache(getHomepageData);
@@ -31,11 +32,11 @@ const fetchGallery  = cache(getGalleryItems);
 
 const FB_HP: HomepageData = {
   id: 1,
-  hero_headline: 'Building Resources.\nPowering Progress.',
-  hero_subheadline: 'Prestige Mining and Energy extracts critical minerals and generates clean power across four countries — combining industrial precision with a genuine commitment to a lower-carbon future.',
+  hero_headline: 'Unearthing Resources.\nShaping Tomorrow.',
+  hero_subheadline: 'From the Pilbara to West Africa — Prestige Mining extracts iron ore, copper, gold, and nickel at industrial scale, with zero-compromise standards on safety, efficiency, and environmental stewardship.',
   hero_video_url: null, hero_background_image: null,
-  hero_cta_primary_label:   'Explore Operations', hero_cta_primary_url:   '/mining',
-  hero_cta_secondary_label: 'Our Story',          hero_cta_secondary_url: '/about',
+  hero_cta_primary_label:   'Explore Mining', hero_cta_primary_url:   '/mining',
+  hero_cta_secondary_label: 'Our Story',      hero_cta_secondary_url: '/about',
   about_overline:  'Since 1984',
   about_headline:  'From One Mine to Four Countries',
   about_body: 'Founded in Perth in 1984, Prestige Mining began with a single open-cut iron ore operation in the Pilbara. A decade of disciplined reinvestment expanded us into copper in Zambia, gold in Ghana, and thermal coal in Indonesia — before the 2010s brought a decisive pivot toward clean energy.\n\nToday, our renewable portfolio generates more electricity than our mine sites consume. The surplus — sold to regional grids under long-term PPAs — has become one of our fastest-growing revenue streams, and a template for how resource companies can lead, not merely adapt to, the energy transition.',
@@ -91,7 +92,7 @@ const FB_GALLERY: GalleryItem[] = [
 ];
 
 const CAT_META: Record<InsightCategory, { label: string; bg: string; color: string }> = {
-  press_release:    { label: 'Press Release',    bg: '#FFF3E0', color: '#E65100' },
+  press_release:    { label: 'Press Release',    bg: '#E3F6FA', color: '#007A96' },
   industry_insight: { label: 'Industry Insight', bg: '#F5F5F5', color: '#333333' },
   project_update:   { label: 'Project Update',   bg: '#E8F5E9', color: '#2E7D32' },
   sustainability:   { label: 'Sustainability',   bg: '#E8F5E9', color: '#2E7D32' },
@@ -101,139 +102,6 @@ const SERVICE_ICONS = [Pickaxe, BarChart3, Globe2, Zap, ShieldCheck, Leaf];
 
 function fmtDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' });
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// HERO — split panel
-// ─────────────────────────────────────────────────────────────────────────────
-
-function HeroSection({ hp, imgs, stats }: { hp: HomepageData; imgs: SiteImages; stats: OperationStat[] }) {
-  const bgUrl = getAssetUrl(imgs.hero_background, { width: 1920, height: 1080, fit: 'cover', quality: 88 })
-    ?? getAssetUrl(hp.hero_background_image, { width: 1920, height: 1080, fit: 'cover', quality: 88 });
-
-  const keyStat = stats[0] ?? { value: '40', unit: '+', label: 'Years of Operations' };
-
-  return (
-    <section style={{
-      position: 'relative',
-      minHeight: 'calc(100svh - 68px)',
-      display: 'flex',
-      alignItems: 'center',
-      background: '#080808',
-      overflow: 'hidden',
-    }}>
-
-      {/* Very faint image — texture not subject */}
-      {bgUrl && (
-        <Image src={bgUrl} alt="" fill priority sizes="100vw"
-          className="object-cover" style={{ opacity: 0.12 }} />
-      )}
-
-      {/* Warm orange glow — far right, barely visible */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 55% 65% at 85% 55%, rgba(245,124,0,0.06) 0%, transparent 60%)',
-      }} />
-
-      {/* Content */}
-      <div className="relative container-xl" style={{ width: '100%', zIndex: 1, paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
-
-        {/* Eyebrow — label + extending rule */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}>
-          <span style={{
-            fontFamily: 'var(--font-heading)', fontSize: '0.6rem', fontWeight: 700,
-            letterSpacing: '0.32em', textTransform: 'uppercase',
-            color: '#F57C00', whiteSpace: 'nowrap', flexShrink: 0,
-          }}>
-            Mining &amp; Energy
-          </span>
-          <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)', maxWidth: '200px' }} />
-        </div>
-
-        {/* Headline — big editorial type */}
-        <h1 style={{
-          fontFamily: 'var(--font-heading)',
-          fontSize: 'clamp(2.4rem, 8vw, 9rem)',
-          fontWeight: 800,
-          lineHeight: 0.96,
-          letterSpacing: '-0.04em',
-          color: '#FFFFFF',
-          margin: 0,
-        }}>
-          {hp.hero_headline.split('\n').map((line, i) => {
-            if (line.includes('|')) {
-              const parts = line.split('|').map(p => p.replace(/\./g, ''));
-              return (
-                <span key={i} style={{ display: 'block' }}>
-                  {parts.map((part, j) => (
-                    j < parts.length - 1
-                      ? <span key={j}>{part}<br className="sm:hidden" />{' '}</span>
-                      : <span key={j}>{part}</span>
-                  ))}
-                </span>
-              );
-            }
-            return <span key={i} style={{ display: 'block' }}>{line.replace(/\./g, '')}</span>;
-          })}
-        </h1>
-
-        {/* Orange rule */}
-        <div style={{ width: '52px', height: '3px', background: '#F57C00', margin: '24px 0' }} />
-
-        {/* Bottom row — subtext + CTAs on left, key stat on right */}
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-
-          {/* Left */}
-          <div style={{ maxWidth: '460px' }}>
-            <p style={{
-              fontFamily: 'var(--font-body)', fontSize: '0.95rem',
-              lineHeight: 1.8, color: 'rgba(255,255,255,0.52)',
-              margin: '0 0 28px',
-            }}>
-              {hp.hero_subheadline}
-            </p>
-            <div className="flex flex-wrap gap-3 items-center">
-              <Link href={hp.hero_cta_primary_url} className="btn-orange">
-                {hp.hero_cta_primary_label} <ArrowRight size={14} />
-              </Link>
-              <Link href="/about" className="btn-outline-white">
-                {hp.hero_cta_secondary_label}
-              </Link>
-            </div>
-          </div>
-
-          {/* Right — single prominent stat */}
-          <div className="flex-shrink-0">
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
-              <span style={{
-                fontFamily: 'var(--font-heading)', fontWeight: 800,
-                fontSize: 'clamp(3rem, 6vw, 6rem)',
-                lineHeight: 1, letterSpacing: '-0.04em', color: '#FFFFFF',
-              }}>
-                {keyStat.value}
-              </span>
-              <span style={{
-                fontFamily: 'var(--font-heading)', fontWeight: 800,
-                fontSize: 'clamp(1.2rem, 2.5vw, 2.5rem)',
-                color: '#F57C00', lineHeight: 1,
-              }}>
-                {keyStat.unit}
-              </span>
-            </div>
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontSize: '0.58rem', fontWeight: 600,
-              letterSpacing: '0.2em', textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.3)', marginTop: '8px',
-            }}>
-              {keyStat.label}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -270,14 +138,14 @@ function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                 )}
                 {/* Bottom colour band */}
                 <div className="absolute inset-x-0 bottom-0 h-1.5"
-                  style={{ background: 'linear-gradient(90deg, #E65100, #FF9800)' }} />
+                  style={{ background: 'linear-gradient(90deg, #007A96, #79B82A)' }} />
               </div>
               {/* Orange corner accent */}
               <div className="absolute -top-4 -left-4 h-16 w-16 hidden lg:block"
-                style={{ borderTop: '3px solid #F57C00', borderLeft: '3px solid #F57C00' }} />
+                style={{ borderTop: '3px solid #00A8C4', borderLeft: '3px solid #00A8C4' }} />
               {/* Floating years badge */}
               <div className="absolute -right-6 bottom-10 hidden lg:flex flex-col items-center justify-center px-6 py-5 shadow-xl"
-                style={{ background: 'linear-gradient(135deg, #E65100, #FF9800)' }}>
+                style={{ background: 'linear-gradient(135deg, #007A96, #79B82A)' }}>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', lineHeight: 1 }}>40+</span>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.8)', marginTop: '4px' }}>Years</span>
               </div>
@@ -302,7 +170,7 @@ function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                 <div key={lbl}>
                   <div style={{
                     fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2rem', lineHeight: 1,
-                    background: 'linear-gradient(135deg, #E65100, #FF9800)',
+                    background: 'linear-gradient(135deg, #007A96, #79B82A)',
                     WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                   }}>
                     {val}
@@ -343,21 +211,21 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
       imgUrl: miningImg,
       headline: 'From pit to port — precision at scale.',
       items: ['Open-Cut Extraction', 'Ore Processing & Refining', 'Mine Logistics & Port'],
-      bg: 'linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%)',
+      bg: 'linear-gradient(135deg, #071524 0%, #0D2544 100%)',
     },
     {
       key: 'energy', label: 'Clean Energy', href: '/energy',
       imgUrl: energyImg,
       headline: 'Powering the energy transition.',
       items: ['Utility-Scale Solar', 'Battery Storage Systems', 'Power Purchase Agreements'],
-      bg: 'linear-gradient(135deg, #1A0E00 0%, #2A1800 100%)',
+      bg: 'linear-gradient(135deg, #081628 0%, #0a1e38 100%)',
     },
   ];
 
   return (
     <section className="section-pad" style={{ background: '#F5F5F5' }}>
       <div className="container-xl">
-        <AnimateIn>
+        <AnimateIn variant="blur">
           <div className="mb-14 max-w-2xl">
             <span className="text-overline">{hp.sectors_headline ?? 'Our Sectors'}</span>
             <span className="accent-line mt-3 mb-5" />
@@ -386,7 +254,7 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
 
                 {/* Left orange accent bar */}
                 <div className="absolute left-0 top-0 h-full w-1 origin-bottom scale-y-0 transition-transform duration-500 group-hover:scale-y-100"
-                  style={{ background: 'linear-gradient(to bottom, #FF9800, #E65100)' }}
+                  style={{ background: 'linear-gradient(to bottom, #79B82A, #007A96)' }}
                 />
 
                 <div className="absolute inset-0 flex flex-col justify-between p-8 lg:p-10">
@@ -395,7 +263,7 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                     <span className="inline-block px-3 py-1 text-[0.6rem] font-bold tracking-widest uppercase"
                       style={{
                         fontFamily: 'var(--font-heading)',
-                        background: 'linear-gradient(135deg, #E65100, #FF9800)',
+                        background: 'linear-gradient(135deg, #007A96, #79B82A)',
                         color: '#FFFFFF',
                       }}>
                       {s.label}
@@ -415,7 +283,7 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                       {s.items.map(item => (
                         <li key={item} className="flex items-center gap-2"
                           style={{ fontFamily: 'var(--font-body)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.6)' }}>
-                          <ChevronRight size={12} style={{ color: '#F57C00' }} />
+                          <ChevronRight size={12} style={{ color: '#00A8C4' }} />
                           {item}
                         </li>
                       ))}
@@ -423,11 +291,11 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                     <div className="flex items-center gap-2 transition-all duration-200 group-hover:gap-3">
                       <span style={{
                         fontFamily: 'var(--font-heading)', fontSize: '0.68rem', fontWeight: 700,
-                        letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF9800',
+                        letterSpacing: '0.12em', textTransform: 'uppercase', color: '#79B82A',
                       }}>
                         Discover More
                       </span>
-                      <ArrowRight size={14} style={{ color: '#FF9800' }} />
+                      <ArrowRight size={14} style={{ color: '#79B82A' }} />
                     </div>
                   </div>
                 </div>
@@ -450,7 +318,7 @@ function ServicesSection({ services }: { services: Service[] }) {
   return (
     <section className="section-pad" style={{ background: '#FFFFFF' }}>
       <div className="container-xl">
-        <AnimateIn>
+        <AnimateIn variant="blur">
           <div className="mb-14 flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <span className="text-overline">What We Do</span>
@@ -461,7 +329,7 @@ function ServicesSection({ services }: { services: Service[] }) {
               className="flex items-center gap-1.5 shrink-0 transition-all duration-150 hover:gap-2.5"
               style={{
                 fontFamily: 'var(--font-heading)', fontSize: '0.7rem', fontWeight: 700,
-                letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00',
+                letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4',
               }}>
               View All <ArrowUpRight size={14} />
             </Link>
@@ -475,7 +343,7 @@ function ServicesSection({ services }: { services: Service[] }) {
             const imgUrl = getAssetUrl(svc.cover_image ?? svc.background_image, { width: 640, height: 400, fit: 'cover', quality: 80 });
 
             return (
-              <AnimateIn key={svc.id} delay={i * 0.07}>
+              <AnimateIn key={svc.id} delay={i * 0.07} variant="scale">
                 <Link href={`/services/${svc.slug}`} className="feature-card group flex flex-col h-full">
                   {/* Image / placeholder */}
                   <div className="relative h-44 overflow-hidden">
@@ -485,15 +353,15 @@ function ServicesSection({ services }: { services: Service[] }) {
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-end justify-end p-4"
-                        style={{ background: isMining ? 'linear-gradient(135deg, #1A1A1A, #2A2A2A)' : 'linear-gradient(135deg, #1A0E00, #2A1800)' }}>
-                        <Icon size={48} style={{ color: 'rgba(245,124,0,0.15)' }} />
+                        style={{ background: isMining ? 'linear-gradient(135deg, #1A1A1A, #2A2A2A)' : 'linear-gradient(135deg, #081628, #0a1e38)' }}>
+                        <Icon size={48} style={{ color: 'rgba(0,168,196,0.15)' }} />
                       </div>
                     )}
                     {/* Sector chip */}
                     <span className="absolute top-3 left-3 px-2.5 py-1 text-[0.58rem] font-bold tracking-widest uppercase"
                       style={{
                         fontFamily: 'var(--font-heading)',
-                        background: 'linear-gradient(135deg, #E65100, #FF9800)',
+                        background: 'linear-gradient(135deg, #007A96, #79B82A)',
                         color: '#FFFFFF',
                       }}>
                       {isMining ? 'Mining' : 'Energy'}
@@ -503,8 +371,8 @@ function ServicesSection({ services }: { services: Service[] }) {
                   {/* Body */}
                   <div className="flex flex-1 flex-col p-6">
                     <div className="mb-3 flex h-9 w-9 items-center justify-center"
-                      style={{ background: '#FFF3E0' }}>
-                      <Icon size={17} style={{ color: '#F57C00' }} />
+                      style={{ background: '#E3F6FA' }}>
+                      <Icon size={17} style={{ color: '#00A8C4' }} />
                     </div>
                     <h3 style={{
                       fontFamily: 'var(--font-heading)', fontWeight: 700,
@@ -519,7 +387,7 @@ function ServicesSection({ services }: { services: Service[] }) {
                       style={{
                         borderColor: '#F0F0F0',
                         fontFamily: 'var(--font-heading)', fontSize: '0.68rem', fontWeight: 700,
-                        letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00',
+                        letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4',
                       }}>
                       Learn More <ArrowRight size={12} />
                     </div>
@@ -541,7 +409,7 @@ function ServicesSection({ services }: { services: Service[] }) {
 function StatsBand({ hp, stats }: { hp: HomepageData; stats: OperationStat[] }) {
   return (
     <section className="relative overflow-hidden"
-      style={{ background: '#0D0D0D' }}>
+      style={{ background: '#0A1628' }}>
       {/* Subtle dot grid */}
       <div className="pointer-events-none absolute inset-0"
         style={{
@@ -551,7 +419,7 @@ function StatsBand({ hp, stats }: { hp: HomepageData; stats: OperationStat[] }) 
       />
       {/* Very subtle warm glow */}
       <div className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(245,124,0,0.07) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(0,168,196,0.07) 0%, transparent 70%)' }}
       />
 
       <div className="relative z-10 container-xl py-16 lg:py-20">
@@ -559,7 +427,7 @@ function StatsBand({ hp, stats }: { hp: HomepageData; stats: OperationStat[] }) 
           <div className="mb-14 text-center">
             <span style={{
               fontFamily: 'var(--font-heading)', fontSize: '0.65rem', fontWeight: 700,
-              letterSpacing: '0.22em', textTransform: 'uppercase', color: '#F57C00',
+              letterSpacing: '0.22em', textTransform: 'uppercase', color: '#00A8C4',
             }}>
               {hp.operations_headline ?? 'Performance by the Numbers'}
             </span>
@@ -582,7 +450,7 @@ function StatsBand({ hp, stats }: { hp: HomepageData; stats: OperationStat[] }) 
                 <div style={{
                   fontFamily: 'var(--font-heading)', fontWeight: 800,
                   fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1,
-                  background: 'linear-gradient(135deg, #E65100, #FF9800)',
+                  background: 'linear-gradient(135deg, #007A96, #79B82A)',
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                 }}>
                   <CountUp value={s.value} />
@@ -633,7 +501,7 @@ function GallerySection({ hp, items }: { hp: HomepageData; items: GalleryItem[] 
           {items.slice(0, 6).map((item, i) => {
             const url = getAssetUrl(item.image, { width: item.span_wide ? 1200 : 640, height: 480, fit: 'cover', quality: 80 });
             return (
-              <AnimateIn key={item.id} delay={i * 0.06}>
+              <AnimateIn key={item.id} delay={i * 0.06} variant="scale">
                 <div
                   className={`relative overflow-hidden group cursor-pointer ${item.span_wide ? 'col-span-2' : ''}`}
                   style={{ aspectRatio: item.span_wide ? '21/9' : '4/3' }}
@@ -653,7 +521,7 @@ function GallerySection({ hp, items }: { hp: HomepageData; items: GalleryItem[] 
                   )}
                   {/* Orange slide-up overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-5 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
-                    style={{ background: 'linear-gradient(to top, rgba(230,81,0,0.92) 0%, rgba(245,124,0,0.65) 50%, transparent 100%)' }}>
+                    style={{ background: 'linear-gradient(to top, rgba(0,122,150,0.92) 0%, rgba(0,168,196,0.65) 50%, transparent 100%)' }}>
                     <p style={{
                       fontFamily: 'var(--font-heading)', fontSize: '0.78rem', fontWeight: 700,
                       letterSpacing: '0.1em', textTransform: 'uppercase', color: '#FFFFFF',
@@ -663,7 +531,7 @@ function GallerySection({ hp, items }: { hp: HomepageData; items: GalleryItem[] 
                   </div>
                   {/* Orange corner pip */}
                   <div className="absolute top-0 right-0 h-7 w-7 flex items-center justify-center"
-                    style={{ background: 'linear-gradient(135deg, #E65100, #FF9800)' }}>
+                    style={{ background: 'linear-gradient(135deg, #007A96, #79B82A)' }}>
                     <span style={{ color: '#FFFFFF', fontSize: '0.5rem' }}>◆</span>
                   </div>
                 </div>
@@ -697,7 +565,7 @@ function InsightsSection({ hp, insights }: { hp: HomepageData; insights: PressIn
               className="flex items-center gap-1.5 shrink-0 transition-all duration-150 hover:gap-2.5"
               style={{
                 fontFamily: 'var(--font-heading)', fontSize: '0.7rem', fontWeight: 700,
-                letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00',
+                letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4',
               }}>
               All Insights <ArrowUpRight size={14} />
             </Link>
@@ -719,14 +587,14 @@ function InsightsSection({ hp, insights }: { hp: HomepageData; insights: PressIn
                       />
                     ) : (
                       <div className="absolute inset-0"
-                        style={{ background: 'linear-gradient(135deg, #1A1A1A, #2A1800)' }}>
+                        style={{ background: 'linear-gradient(135deg, #1A1A1A, #0a1e38)' }}>
                         <div className="absolute inset-0 opacity-20"
-                          style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(245,124,0,0.5))' }} />
+                          style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(0,168,196,0.5))' }} />
                       </div>
                     )}
                     {/* Orange line bottom — slides in on hover */}
                     <div className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
-                      style={{ background: 'linear-gradient(90deg, #E65100, #FF9800)' }} />
+                      style={{ background: 'linear-gradient(90deg, #007A96, #79B82A)' }} />
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
@@ -753,7 +621,7 @@ function InsightsSection({ hp, insights }: { hp: HomepageData; insights: PressIn
                       style={{
                         borderColor: '#F5F5F5',
                         fontFamily: 'var(--font-heading)', fontSize: '0.68rem', fontWeight: 700,
-                        letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00',
+                        letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4',
                       }}>
                       Read More <ArrowRight size={12} />
                     </div>
@@ -784,7 +652,7 @@ function CtaBanner({ imgs }: { imgs: SiteImages }) {
       )}
       {/* Orange glow top-right */}
       <div className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 55% 50% at 80% 30%, rgba(245,124,0,0.2) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse 55% 50% at 80% 30%, rgba(0,168,196,0.2) 0%, transparent 65%)' }} />
       {/* Dot grid */}
       <div className="pointer-events-none absolute inset-0"
         style={{
@@ -797,10 +665,10 @@ function CtaBanner({ imgs }: { imgs: SiteImages }) {
         <div className="mx-auto max-w-3xl text-center">
           <AnimateIn>
             <div className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 mb-7"
-              style={{ borderColor: 'rgba(245,124,0,0.3)', background: 'rgba(245,124,0,0.08)' }}>
+              style={{ borderColor: 'rgba(0,168,196,0.3)', background: 'rgba(0,168,196,0.08)' }}>
               <span style={{
                 fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 700,
-                letterSpacing: '0.2em', textTransform: 'uppercase', color: '#F57C00',
+                letterSpacing: '0.2em', textTransform: 'uppercase', color: '#00A8C4',
               }}>
                 Partner With Us
               </span>
@@ -848,9 +716,14 @@ export default async function HomePage() {
   const services = servicesRes.status === 'fulfilled' ? servicesRes.value : FB_SERVICES;
   const gallery  = galleryRes.status  === 'fulfilled' ? galleryRes.value  : FB_GALLERY;
 
+  const heroImgUrl =
+    getAssetUrl(imgs.hero_background,    { width: 1400, height: 1000, fit: 'cover', quality: 88 }) ??
+    getAssetUrl(hp.hero_background_image,{ width: 1400, height: 1000, fit: 'cover', quality: 88 }) ??
+    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85';
+
   return (
     <>
-      <HeroSection     hp={hp} imgs={imgs} stats={stats} />
+      <HeroSection imgUrl={heroImgUrl} />
       <AboutSection    hp={hp} imgs={imgs} />
       <SectorsSection  hp={hp} imgs={imgs} />
       <ServicesSection services={services} />

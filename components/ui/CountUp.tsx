@@ -13,14 +13,13 @@ interface CountUpProps {
 export default function CountUp({ value, unit, className, unitClassName }: CountUpProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
-  const [display, setDisplay] = useState('0');
 
   const numeric = parseFloat(value.replace(/[^0-9.]/g, ''));
   const suffix  = value.replace(/[0-9.]/g, '');
+  const [display, setDisplay] = useState(isNaN(numeric) ? value : '0');
 
   useEffect(() => {
-    if (!inView) return;
-    if (isNaN(numeric)) { setDisplay(value); return; }
+    if (!inView || isNaN(numeric)) return;
 
     const duration = 1800;
     const steps    = 60;

@@ -19,7 +19,7 @@ export default function PageHero({ overline, headline, subheadline, bgUrl, bread
     <section className="relative overflow-hidden"
       style={{
         minHeight: 'clamp(320px, 44vh, 540px)',
-        background: 'linear-gradient(160deg, #0a0a0a 0%, #141414 55%, #1a0f00 100%)',
+        background: 'linear-gradient(160deg, #071524 0%, #0D2544 55%, #071828 100%)',
         paddingTop: 'clamp(3rem, 7vh, 5rem)',
         paddingBottom: 'clamp(3rem, 7vh, 5rem)',
       }}
@@ -29,7 +29,7 @@ export default function PageHero({ overline, headline, subheadline, bgUrl, bread
       )}
       {/* Orange atmospheric glow */}
       <div className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 60% 50% at 70% 30%, rgba(245,124,0,0.16) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 50% at 70% 30%, rgba(0,168,196,0.16) 0%, transparent 65%)' }}
       />
       {/* Dot grid */}
       <div className="pointer-events-none absolute inset-0"
@@ -45,7 +45,7 @@ export default function PageHero({ overline, headline, subheadline, bgUrl, bread
           <nav className="mb-6 flex items-center gap-1.5 flex-wrap">
             <Link href="/"
               style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}
-              className="hover:text-[#F57C00] transition-colors">
+              className="hover:text-[#00A8C4] transition-colors">
               Home
             </Link>
             {breadcrumbs.map((crumb, i) => (
@@ -54,11 +54,11 @@ export default function PageHero({ overline, headline, subheadline, bgUrl, bread
                 {crumb.href && i < breadcrumbs.length - 1 ? (
                   <Link href={crumb.href}
                     style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}
-                    className="hover:text-[#F57C00] transition-colors">
+                    className="hover:text-[#00A8C4] transition-colors">
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F57C00' }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#00A8C4' }}>
                     {crumb.label}
                   </span>
                 )}

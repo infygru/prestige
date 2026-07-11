@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import AnimateIn from '@/components/ui/AnimateIn';
@@ -64,12 +63,12 @@ export default async function AboutPage() {
                 Prestige Mining and Energy was founded in 1984 on the principle that responsible resource extraction and clean energy generation are complementary goals. From a single open-cut iron ore mine in the Pilbara, we have grown into one of the most geographically diverse resource companies in the world.
               </p>
               <p className="mt-4 text-sm leading-loose" style={{ color: '#6B6B6B' }}>
-                Our integrated model — connecting raw material extraction to clean power generation — delivers value across the entire resource chain. We believe that the mining industry's long-term social licence depends on its willingness to lead the energy transition, not resist it.
+                Our integrated model — connecting raw material extraction to clean power generation — delivers value across the entire resource chain. We believe that the mining industry&apos;s long-term social licence depends on its willingness to lead the energy transition, not resist it.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-4 border-y py-6" style={{ borderColor: '#F0F0F0' }}>
                 {[['1984', 'Founded'], ['22+', 'Active Sites'], ['4', 'Continents']].map(([val, lbl]) => (
                   <div key={lbl}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2rem', lineHeight: 1, background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{val}</div>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2rem', lineHeight: 1, background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{val}</div>
                     <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#BDBDBD', marginTop: '4px' }}>{lbl}</div>
                   </div>
                 ))}
@@ -80,7 +79,7 @@ export default async function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[['12,000', '+', 'Employees'], ['48', 'Mt/yr', 'Extraction'], ['2.4', 'GW', 'Clean Energy'], ['40+', 'Years', 'Experience']].map(([val, unit, lbl]) => (
                   <div key={lbl} className="glass-card p-6"
-                    style={{ background: 'linear-gradient(135deg,#0a0a0a,#1a0f00)' }}>
+                    style={{ background: 'linear-gradient(135deg,#071524,#0D2544)' }}>
                     <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2rem', lineHeight: 1 }}>
                       <span className="text-gradient-orange"><CountUp value={val} /></span>
                       <span style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.5)', marginLeft: '2px' }}>{unit}</span>
@@ -106,7 +105,7 @@ export default async function AboutPage() {
             {VALUES.map((v, i) => (
               <AnimateIn key={v.title} delay={i * 0.08}>
                 <div className="feature-card p-7 h-full">
-                  <div className="mb-5 h-1 w-8" style={{ background: 'linear-gradient(90deg,#E65100,#FF9800)' }} />
+                  <div className="mb-5 h-1 w-8" style={{ background: 'linear-gradient(90deg,#007A96,#79B82A)' }} />
                   <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: '#111111', marginBottom: '0.5rem' }}>{v.title}</h4>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: '#757575', lineHeight: 1.7 }}>{v.body}</p>
                 </div>
@@ -126,17 +125,17 @@ export default async function AboutPage() {
           </AnimateIn>
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-[3.5rem] top-0 bottom-0 w-px hidden lg:block" style={{ background: 'linear-gradient(to bottom, #F57C00, transparent)' }} />
+            <div className="absolute left-[3.5rem] top-0 bottom-0 w-px hidden lg:block" style={{ background: 'linear-gradient(to bottom, #00A8C4, transparent)' }} />
             <div className="space-y-8">
               {TIMELINE.map((item, i) => (
                 <AnimateIn key={item.year} delay={i * 0.07}>
                   <div className="flex gap-8 items-start">
                     <div className="shrink-0 w-28 text-right hidden lg:block">
-                      <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{item.year}</span>
+                      <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{item.year}</span>
                     </div>
-                    <div className="hidden lg:flex shrink-0 items-center justify-center w-4 h-4 rounded-full mt-1" style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)', boxShadow: '0 0 8px rgba(245,124,0,0.5)' }} />
+                    <div className="hidden lg:flex shrink-0 items-center justify-center w-4 h-4 rounded-full mt-1" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)', boxShadow: '0 0 8px rgba(0,168,196,0.5)' }} />
                     <div className="flex-1 pb-8 border-b" style={{ borderColor: '#F5F5F5' }}>
-                      <span className="font-bold text-sm block mb-1 lg:hidden" style={{ color: '#F57C00', fontFamily: 'var(--font-heading)' }}>{item.year}</span>
+                      <span className="font-bold text-sm block mb-1 lg:hidden" style={{ color: '#00A8C4', fontFamily: 'var(--font-heading)' }}>{item.year}</span>
                       <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#4A4A4A', lineHeight: 1.7 }}>{item.event}</p>
                     </div>
                   </div>
@@ -160,13 +159,13 @@ export default async function AboutPage() {
               <AnimateIn key={person.name} delay={i * 0.08}>
                 <div className="feature-card p-6 text-center">
                   <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full"
-                    style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)' }}>
+                    style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                     <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.8rem', color: '#FFFFFF' }}>
                       {person.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                     </span>
                   </div>
                   <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.95rem', color: '#111111' }}>{person.name}</h4>
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: '#F57C00', marginTop: '3px' }}>{person.role}</p>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: '#00A8C4', marginTop: '3px' }}>{person.role}</p>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', color: '#BDBDBD', marginTop: '4px' }}>{person.tenure} tenure</p>
                 </div>
               </AnimateIn>
@@ -177,7 +176,7 @@ export default async function AboutPage() {
 
       {/* Sustainability */}
       <section id="sustainability" className="section-pad"
-        style={{ background: 'linear-gradient(160deg,#0a0a0a 0%,#141414 55%,#1a0f00 100%)' }}>
+        style={{ background: 'linear-gradient(160deg,#071524 0%,#0D2544 55%,#071828 100%)' }}>
         <div className="container-xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <AnimateIn>
@@ -190,7 +189,7 @@ export default async function AboutPage() {
               <ul className="mt-6 space-y-3">
                 {['50% emissions reduction by 2030 (vs 2019 baseline)', 'All new projects 100% renewable-powered from day one', 'Zero freshwater use at three Australian sites by 2027', '$200M community investment fund over five years'].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full" style={{ background: '#F57C00' }} />
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full" style={{ background: '#00A8C4' }} />
                     <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)' }}>{item}</span>
                   </li>
                 ))}

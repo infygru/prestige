@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         <div className="container-xl">
           <div className="mx-auto max-w-3xl">
             <p className="mb-10 text-sm leading-loose" style={{ color: '#6B6B6B', fontFamily: 'var(--font-body)' }}>
-              Prestige Mining and Energy Pty Ltd ("we", "us", "our") is committed to protecting your privacy. This Policy explains how we collect, use, and safeguard personal information in accordance with applicable privacy legislation.
+              Prestige Mining and Energy Pty Ltd (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is committed to protecting your privacy. This Policy explains how we collect, use, and safeguard personal information in accordance with applicable privacy legislation.
             </p>
             <div className="space-y-8">
               {SECTIONS.map((s) => (

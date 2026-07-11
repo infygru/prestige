@@ -4,6 +4,8 @@ import './globals.css';
 import { getGlobalSettings, getAssetUrl } from '@/lib/directus';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollProgress from '@/components/ui/ScrollProgress';
+import CursorGlow from '@/components/ui/CursorGlow';
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
 
@@ -24,7 +26,7 @@ const inter = Inter({
 // ─── Viewport ─────────────────────────────────────────────────────────────────
 
 export const viewport: Viewport = {
-  themeColor: '#0A2558',
+  themeColor: '#0D2544',
   colorScheme: 'light',
 };
 
@@ -68,6 +70,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       suppressHydrationWarning
     >
       <body style={{ fontFamily: 'var(--font-body)', backgroundColor: '#FFFFFF', color: '#1E2D42' }}>
+        {/* Global ambient overlays */}
+        <ScrollProgress />
+        <CursorGlow />
+        <div className="noise-layer" aria-hidden="true" />
+
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-[#0A2558] focus:px-4 focus:py-2 focus:text-white">
           Skip to main content
         </a>

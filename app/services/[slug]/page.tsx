@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               {imgUrl && (
                 <div className="relative mb-10 aspect-video overflow-hidden">
                   <Image src={imgUrl} alt={service.title} fill className="object-cover" sizes="(min-width:1024px) 66vw, 100vw" />
-                  <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: 'linear-gradient(90deg,#E65100,#FF9800)' }} />
+                  <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: 'linear-gradient(90deg,#007A96,#79B82A)' }} />
                 </div>
               )}
 
@@ -82,7 +82,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
               <div className="mt-10 pt-8 border-t" style={{ borderColor: '#F0F0F0' }}>
                 <Link href={sectorHref} className="inline-flex items-center gap-2 transition-colors duration-200"
-                  style={{ fontFamily: 'var(--font-heading)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00' }}>
+                  style={{ fontFamily: 'var(--font-heading)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4' }}>
                   <ArrowLeft size={13} /> Back to {sectorLabel}
                 </Link>
               </div>
@@ -94,13 +94,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 {/* Stats */}
                 {service.stats && service.stats.length > 0 && (
                   <div className="p-6" style={{ background: '#F5F5F5' }}>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#F57C00', marginBottom: '1.25rem' }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#00A8C4', marginBottom: '1.25rem' }}>
                       Key Stats
                     </h3>
                     <div className="space-y-5">
                       {service.stats.map((st) => (
                         <div key={st.label} className="border-b pb-5" style={{ borderColor: '#E0E0E0' }}>
-                          <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.8rem', lineHeight: 1, background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                          <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.8rem', lineHeight: 1, background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                             {st.value}<span style={{ fontSize: '1rem' }}>{st.unit}</span>
                           </div>
                           <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#BDBDBD', marginTop: '3px' }}>{st.label}</div>
@@ -111,7 +111,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 )}
 
                 {/* CTA card */}
-                <div className="p-6" style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)' }}>
+                <div className="p-6" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', color: '#FFFFFF', marginBottom: '0.5rem' }}>
                     Interested in this service?
                   </h3>

@@ -8,7 +8,7 @@ import { getInsightBySlug, getAllInsights, getAssetUrl, type InsightCategory } f
 export const revalidate = 60;
 
 const CAT_META: Record<InsightCategory, { label: string; bg: string; color: string }> = {
-  press_release:    { label: 'Press Release',    bg: '#FFF3E0', color: '#E65100' },
+  press_release:    { label: 'Press Release',    bg: '#E3F6FA', color: '#007A96' },
   industry_insight: { label: 'Industry Insight', bg: '#F5F5F5', color: '#333333' },
   project_update:   { label: 'Project Update',   bg: '#E8F5E9', color: '#2E7D32' },
   sustainability:   { label: 'Sustainability',   bg: '#E8F5E9', color: '#2E7D32' },
@@ -88,7 +88,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
             )}
 
             {/* Excerpt */}
-            <p className="mb-8 text-base leading-loose font-medium" style={{ color: '#4A4A4A', fontFamily: 'var(--font-body)', borderLeft: '3px solid #F57C00', paddingLeft: '1.25rem' }}>
+            <p className="mb-8 text-base leading-loose font-medium" style={{ color: '#4A4A4A', fontFamily: 'var(--font-body)', borderLeft: '3px solid #00A8C4', paddingLeft: '1.25rem' }}>
               {insight.excerpt}
             </p>
 
@@ -102,7 +102,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
                   Full article content will appear here once published in the Directus CMS. Use the <strong>body</strong> field in the <code>press_insights</code> collection to add the full article text, which supports rich HTML content.
                 </p>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: '#6B6B6B', lineHeight: 1.9 }}>
-                  Navigate to <a href="https://api.prestigeminingenergy.com/admin" target="_blank" rel="noopener noreferrer" style={{ color: '#F57C00' }}>Directus Admin</a> → Press Insights → {insight.title} to add content.
+                  Navigate to <a href="https://api.prestigeminingenergy.com/admin" target="_blank" rel="noopener noreferrer" style={{ color: '#00A8C4' }}>Directus Admin</a> → Press Insights → {insight.title} to add content.
                 </p>
               </div>
             )}
@@ -110,7 +110,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
             {/* Back */}
             <div className="mt-12 pt-8 border-t" style={{ borderColor: '#F0F0F0' }}>
               <Link href="/insights" className="inline-flex items-center gap-2 transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-heading)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F57C00' }}>
+                style={{ fontFamily: 'var(--font-heading)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#00A8C4' }}>
                 <ArrowLeft size={13} /> Back to Insights
               </Link>
             </div>

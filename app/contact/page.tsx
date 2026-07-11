@@ -110,16 +110,16 @@ export default async function ContactPage() {
                   <span className="text-overline mb-4 block">Contact Information</span>
                   <div className="space-y-4">
                     <a href={`mailto:${email}`} className="flex items-start gap-3 group">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)' }}>
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                         <Mail size={14} style={{ color: '#FFFFFF' }} />
                       </div>
                       <div>
                         <p style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#BDBDBD' }}>Email</p>
-                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: '#F57C00', marginTop: '1px' }}>{email}</p>
+                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: '#00A8C4', marginTop: '1px' }}>{email}</p>
                       </div>
                     </a>
                     <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)' }}>
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                         <Phone size={14} style={{ color: '#FFFFFF' }} />
                       </div>
                       <div>
@@ -128,7 +128,7 @@ export default async function ContactPage() {
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)' }}>
+                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                         <MapPin size={14} style={{ color: '#FFFFFF' }} />
                       </div>
                       <div>
@@ -140,8 +140,8 @@ export default async function ContactPage() {
                 </div>
 
                 {/* Quick links */}
-                <div className="p-7" style={{ background: 'linear-gradient(135deg,#0a0a0a,#1a0f00)', border: '1px solid rgba(245,124,0,0.15)' }}>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#F57C00', marginBottom: '1rem' }}>
+                <div className="p-7" style={{ background: 'linear-gradient(135deg,#071524,#0D2544)', border: '1px solid rgba(0,168,196,0.15)' }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#00A8C4', marginBottom: '1rem' }}>
                     Explore More
                   </h3>
                   <div className="space-y-3">
@@ -150,7 +150,7 @@ export default async function ContactPage() {
                         className="flex items-center justify-between group"
                         style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.75rem' }}>
                         {label}
-                        <ArrowRight size={13} style={{ color: '#F57C00' }} className="transition-transform duration-200 group-hover:translate-x-1" />
+                        <ArrowRight size={13} style={{ color: '#00A8C4' }} className="transition-transform duration-200 group-hover:translate-x-1" />
                       </Link>
                     ))}
                   </div>

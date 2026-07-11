@@ -74,7 +74,7 @@ export default function SitemapPage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {SITE_MAP.map((section) => (
               <div key={section.group}>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#F57C00', marginBottom: '1rem' }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#00A8C4', marginBottom: '1rem' }}>
                   {section.group}
                 </h2>
                 <ul className="space-y-2.5">
@@ -83,8 +83,8 @@ export default function SitemapPage() {
                       <Link href={link.href}
                         className="flex items-center gap-2 group transition-colors duration-150"
                         style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: '#4A4A4A' }}>
-                        <ArrowRight size={12} style={{ color: '#F57C00', flexShrink: 0 }} className="transition-transform duration-150 group-hover:translate-x-0.5" />
-                        <span className="group-hover:text-[#F57C00] transition-colors duration-150">{link.label}</span>
+                        <ArrowRight size={12} style={{ color: '#00A8C4', flexShrink: 0 }} className="transition-transform duration-150 group-hover:translate-x-0.5" />
+                        <span className="group-hover:text-[#00A8C4] transition-colors duration-150">{link.label}</span>
                       </Link>
                     </li>
                   ))}

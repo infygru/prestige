@@ -35,10 +35,10 @@ export default function Footer({ settings }: FooterProps) {
   const addr  = settings?.hq_address    ?? '1 Exchange Plaza, Perth WA 6000, Australia';
 
   return (
-    <footer style={{ background: '#0D0D0D' }}>
+    <footer style={{ background: '#071524' }}>
 
       {/* Orange top rule — 3px solid, matches hero panel separator */}
-      <div style={{ height: '3px', background: '#F57C00' }} />
+      <div style={{ height: '3px', background: '#00A8C4' }} />
 
       <div className="container-xl py-14 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
@@ -53,7 +53,7 @@ export default function Footer({ settings }: FooterProps) {
               marginBottom: '24px',
             }}>
               <Image
-                src="/prestige-me-logo.jpg"
+                src="/prestige-logo.jpg"
                 alt="Prestige Mining & Energy"
                 width={148}
                 height={36}
@@ -72,19 +72,19 @@ export default function Footer({ settings }: FooterProps) {
 
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={13} style={{ color: '#F57C00', flexShrink: 0 }} />
+                <Mail size={13} style={{ color: '#00A8C4', flexShrink: 0 }} />
                 <a href={`mailto:${email}`} className="footer-contact-link">
                   {email}
                 </a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Phone size={13} style={{ color: '#F57C00', flexShrink: 0 }} />
+                <Phone size={13} style={{ color: '#00A8C4', flexShrink: 0 }} />
                 <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)' }}>
                   {phone}
                 </span>
               </li>
               <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                <MapPin size={13} style={{ color: '#F57C00', flexShrink: 0, marginTop: '2px' }} />
+                <MapPin size={13} style={{ color: '#00A8C4', flexShrink: 0, marginTop: '2px' }} />
                 <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
                   {addr}
                 </span>
@@ -120,7 +120,7 @@ export default function Footer({ settings }: FooterProps) {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="container-xl py-4"
           style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
           <span style={{

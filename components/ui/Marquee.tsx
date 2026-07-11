@@ -29,7 +29,7 @@ export default function Marquee({ items, speed = 28 }: MarqueeProps) {
             }}>
               {item}
             </span>
-            <span style={{ color: '#F57C00', fontSize: '0.45rem' }}>◆</span>
+            <span style={{ color: '#00A8C4', fontSize: '0.45rem' }}>◆</span>
           </span>
         ))}
       </div>

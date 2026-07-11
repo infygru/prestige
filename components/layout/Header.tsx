@@ -31,7 +31,7 @@ const NAV = [
 
 interface HeaderProps { settings: GlobalSettings | null; }
 
-export default function Header({ settings }: HeaderProps) {
+export default function Header({ settings: _ }: HeaderProps) {
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDrop,   setOpenDrop]   = useState<string | null>(null);
@@ -67,7 +67,7 @@ export default function Header({ settings }: HeaderProps) {
 
         {/* Logo */}
         <Link href="/" style={{ lineHeight: 0, flexShrink: 0 }}>
-          <Image src="/prestige-me-logo.jpg" alt="Prestige Mining & Energy"
+          <Image src="/prestige-logo.jpg" alt="Prestige Mining & Energy"
             width={160} height={40}
             style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
             priority
@@ -87,10 +87,10 @@ export default function Header({ settings }: HeaderProps) {
                     display: 'flex', alignItems: 'center', gap: '4px',
                     padding: '8px 16px', background: 'none', border: 'none', cursor: 'pointer',
                     fontFamily: 'var(--font-body)', fontSize: '0.875rem', fontWeight: 500,
-                    color: openDrop === item.href ? '#F57C00' : '#222222',
+                    color: openDrop === item.href ? '#00A8C4' : '#222222',
                     transition: 'color 0.15s',
                   }}
-                  onMouseEnter={e => { if (openDrop !== item.href) (e.currentTarget as HTMLElement).style.color = '#F57C00'; }}
+                  onMouseEnter={e => { if (openDrop !== item.href) (e.currentTarget as HTMLElement).style.color = '#00A8C4'; }}
                   onMouseLeave={e => { if (openDrop !== item.href) (e.currentTarget as HTMLElement).style.color = '#222222'; }}
                 >
                   {item.label}
@@ -106,7 +106,7 @@ export default function Header({ settings }: HeaderProps) {
                   fontFamily: 'var(--font-body)', fontSize: '0.875rem', fontWeight: 500,
                   color: '#222222', transition: 'color 0.15s',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#F57C00')}
+                onMouseEnter={e => (e.currentTarget.style.color = '#00A8C4')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#222222')}>
                   {item.label}
                 </Link>
@@ -128,7 +128,7 @@ export default function Header({ settings }: HeaderProps) {
                         fontWeight: 400, color: '#444444',
                         transition: 'color 0.15s, background 0.15s',
                       }}
-                      onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = '#F57C00'; el.style.background = '#FAFAFA'; }}
+                      onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = '#00A8C4'; el.style.background = '#FAFAFA'; }}
                       onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = '#444444'; el.style.background = 'transparent'; }}
                     >
                       {sub.label}
@@ -146,12 +146,12 @@ export default function Header({ settings }: HeaderProps) {
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               padding: '9px 22px',
-              background: '#111111', color: '#FFFFFF',
+              background: '#0D2544', color: '#FFFFFF',
               fontFamily: 'var(--font-body)', fontSize: '0.8rem', fontWeight: 500,
               transition: 'background 0.2s',
             }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#F57C00'}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#111111'}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#00A8C4'}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#0D2544'}
           >
             Get in Touch <ArrowRight size={12} />
           </Link>
@@ -188,7 +188,7 @@ export default function Header({ settings }: HeaderProps) {
           <Link href="/contact" onClick={() => setMobileOpen(false)}
             style={{
               marginTop: '16px', padding: '12px 0', textAlign: 'center',
-              background: '#111111', color: '#FFFFFF',
+              background: '#0D2544', color: '#FFFFFF',
               fontFamily: 'var(--font-body)', fontSize: '0.875rem', fontWeight: 500,
             }}>
             Get in Touch

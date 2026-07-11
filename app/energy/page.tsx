@@ -54,7 +54,7 @@ export default async function EnergyPage() {
       </PageHero>
 
       {/* Stats */}
-      <div style={{ background: '#111111', borderBottom: '1px solid #1A1A1A' }}>
+      <div style={{ background: '#0D2544', borderBottom: '1px solid #152E52' }}>
         <div className="container-xl py-10">
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {ENERGY_STATS.map((s, i) => (
@@ -96,15 +96,15 @@ export default async function EnergyPage() {
                         <Image src={imgUrl} alt={svc.title} fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
                       ) : (
                         <div className="absolute inset-0 flex items-end justify-end p-6"
-                          style={{ background: 'linear-gradient(135deg,#1A0E00,#2A1800)' }}>
-                          <Icon size={64} style={{ color: 'rgba(245,124,0,0.2)' }} />
+                          style={{ background: 'linear-gradient(135deg,#081628,#0a1e38)' }}>
+                          <Icon size={64} style={{ color: 'rgba(0,168,196,0.2)' }} />
                         </div>
                       )}
-                      <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: 'linear-gradient(90deg,#E65100,#FF9800)' }} />
+                      <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: 'linear-gradient(90deg,#007A96,#79B82A)' }} />
                     </div>
                     <div>
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center" style={{ background: '#FFF3E0' }}>
-                        <Icon size={20} style={{ color: '#F57C00' }} />
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center" style={{ background: '#E3F6FA' }}>
+                        <Icon size={20} style={{ color: '#00A8C4' }} />
                       </div>
                       <span className="text-overline">{`0${i + 1}`}</span>
                       <span className="accent-line mt-2 mb-5" />
@@ -118,7 +118,7 @@ export default async function EnergyPage() {
                         <div className="mt-7 grid grid-cols-3 gap-4 border-t pt-6" style={{ borderColor: '#F0F0F0' }}>
                           {svc.stats.map((st) => (
                             <div key={st.label}>
-                              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.6rem', background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1 }}>
+                              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.6rem', background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1 }}>
                                 {st.value}<span style={{ fontSize: '0.9rem' }}>{st.unit}</span>
                               </div>
                               <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#BDBDBD', marginTop: '3px' }}>{st.label}</div>
@@ -157,7 +157,7 @@ export default async function EnergyPage() {
             ].map((item, i) => (
               <AnimateIn key={item.title} delay={i * 0.07}>
                 <div className="feature-card p-7 h-full">
-                  <div className="mb-4 h-1 w-8" style={{ background: 'linear-gradient(90deg,#E65100,#FF9800)' }} />
+                  <div className="mb-4 h-1 w-8" style={{ background: 'linear-gradient(90deg,#007A96,#79B82A)' }} />
                   <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: '#111111', marginBottom: '0.5rem' }}>{item.title}</h4>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: '#757575', lineHeight: 1.7 }}>{item.body}</p>
                 </div>
@@ -168,21 +168,21 @@ export default async function EnergyPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden section-pad" style={{ background: '#0D0D0D' }}>
+      <section className="relative overflow-hidden section-pad" style={{ background: '#0A1628' }}>
         <div className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 60% 55% at 50% 100%, rgba(245,124,0,0.09) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse 60% 55% at 50% 100%, rgba(0,168,196,0.09) 0%, transparent 70%)' }} />
         <div className="pointer-events-none absolute inset-0"
           style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative z-10 container-xl text-center">
           <AnimateIn>
             <div className="inline-flex items-center gap-2 border px-4 py-1.5 mb-7"
-              style={{ borderColor: 'rgba(245,124,0,0.25)', background: 'rgba(245,124,0,0.07)' }}>
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#F57C00' }}>
+              style={{ borderColor: 'rgba(0,168,196,0.25)', background: 'rgba(0,168,196,0.07)' }}>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#00A8C4' }}>
                 Get Started
               </span>
             </div>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'clamp(1.8rem,3.5vw,3rem)', color: '#FFFFFF', lineHeight: 1.1 }}>
-              Ready to Decarbonise<br /><span style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Your Operations?</span>
+              Ready to Decarbonise<br /><span style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Your Operations?</span>
             </h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-loose" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-body)' }}>
               Our energy team can develop a bespoke renewable solution for your site — from feasibility through to financial close and operation.

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import AnimateIn from '@/components/ui/AnimateIn';
 import CountUp   from '@/components/ui/CountUp';
 import PageHero  from '@/components/ui/PageHero';
@@ -61,7 +61,7 @@ export default async function MiningPage() {
       </PageHero>
 
       {/* Stats band */}
-      <div style={{ background: '#111111', borderBottom: '1px solid #1A1A1A' }}>
+      <div style={{ background: '#0D2544', borderBottom: '1px solid #152E52' }}>
         <div className="container-xl py-10">
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {stats.slice(0, 4).map((s, i) => (
@@ -109,7 +109,7 @@ export default async function MiningPage() {
                           </span>
                         </div>
                       )}
-                      <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: 'linear-gradient(90deg,#E65100,#FF9800)' }} />
+                      <div className="absolute inset-x-0 bottom-0 h-1" style={{ background: 'linear-gradient(90deg,#007A96,#79B82A)' }} />
                     </div>
                     {/* Text */}
                     <div>
@@ -125,7 +125,7 @@ export default async function MiningPage() {
                         <div className="mt-7 grid grid-cols-3 gap-4 border-t pt-6" style={{ borderColor: '#F0F0F0' }}>
                           {svc.stats.map((st) => (
                             <div key={st.label}>
-                              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.6rem', background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1 }}>
+                              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.6rem', background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1 }}>
                                 {st.value}<span style={{ fontSize: '0.9rem' }}>{st.unit}</span>
                               </div>
                               <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#BDBDBD', marginTop: '3px' }}>{st.label}</div>
@@ -157,13 +157,13 @@ export default async function MiningPage() {
             {PROCESS_STEPS.map((step, i) => (
               <AnimateIn key={step.num} delay={i * 0.07}>
                 <div className="relative p-6 h-full" style={{ background: '#FFFFFF', borderTop: '3px solid transparent', transition: 'border-color 0.3s' }}>
-                  <div className="mb-4" style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2.5rem', lineHeight: 1, background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  <div className="mb-4" style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2.5rem', lineHeight: 1, background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                     {step.num}
                   </div>
                   <h4 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.9rem', color: '#111111', marginBottom: '0.5rem' }}>{step.title}</h4>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: '#757575', lineHeight: 1.7 }}>{step.body}</p>
                   {i < PROCESS_STEPS.length - 1 && (
-                    <ChevronRight size={16} className="absolute -right-3 top-1/2 -translate-y-1/2 hidden lg:block" style={{ color: '#F57C00', zIndex: 1 }} />
+                    <ChevronRight size={16} className="absolute -right-3 top-1/2 -translate-y-1/2 hidden lg:block" style={{ color: '#00A8C4', zIndex: 1 }} />
                   )}
                 </div>
               </AnimateIn>
@@ -173,21 +173,21 @@ export default async function MiningPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden section-pad" style={{ background: '#0D0D0D' }}>
+      <section className="relative overflow-hidden section-pad" style={{ background: '#0A1628' }}>
         <div className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 60% 55% at 50% 100%, rgba(245,124,0,0.09) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse 60% 55% at 50% 100%, rgba(0,168,196,0.09) 0%, transparent 70%)' }} />
         <div className="pointer-events-none absolute inset-0"
           style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative z-10 container-xl text-center">
           <AnimateIn>
             <div className="inline-flex items-center gap-2 border px-4 py-1.5 mb-7"
-              style={{ borderColor: 'rgba(245,124,0,0.25)', background: 'rgba(245,124,0,0.07)' }}>
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#F57C00' }}>
+              style={{ borderColor: 'rgba(0,168,196,0.25)', background: 'rgba(0,168,196,0.07)' }}>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#00A8C4' }}>
                 Partner With Us
               </span>
             </div>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'clamp(1.8rem,3.5vw,3rem)', color: '#FFFFFF', lineHeight: 1.1 }}>
-              Ready to Discuss a<br /><span style={{ background: 'linear-gradient(135deg,#E65100,#FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Mining Partnership?</span>
+              Ready to Discuss a<br /><span style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Mining Partnership?</span>
             </h2>
             <p className="mt-4 mx-auto max-w-xl text-sm leading-loose" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-body)' }}>
               Our team is available to discuss contract mining, joint ventures, offtake agreements, and technical consultancy.
