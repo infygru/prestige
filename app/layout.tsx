@@ -69,7 +69,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={`${montserrat.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body style={{ fontFamily: 'var(--font-body)', backgroundColor: '#FFFFFF', color: '#1E2D42' }}>
+      <body style={{ fontFamily: 'var(--font-body)', backgroundColor: '#FFFFFF', color: '#1E2D42' }} suppressHydrationWarning>
         {/* Global ambient overlays */}
         <ScrollProgress />
         <CursorGlow />
