@@ -38,7 +38,7 @@ const FB_HP: HomepageData = {
   hero_cta_primary_label:   'Antimony Mining', hero_cta_primary_url:   '/mining',
   hero_cta_secondary_label: 'Oil & Energy',    hero_cta_secondary_url: '/energy',
   about_overline:  'Est. 2009',
-  about_headline:  'Three Commodities. One Integrated Strategy.',
+  about_headline:  'Built on Antimony. Powered by Oil.',
   about_body: 'Founded in N\'Djamena in 2009, Prestige Mining & Energy built its foundation on high-grade antimony in Chad\'s Moyen-Chari region — one of Central Africa\'s most consistent antimony belts. Our two processing plants produce over 6,000 tonnes of concentrate per year at purities exceeding 95% Sb.\n\nIn 2015 we expanded into gold, securing exploration licences in proven gold corridors across Central Africa. Our gold operations now produce 48,000 troy ounces per year, supplying refineries in Dubai, Switzerland, and South Africa with certified doré bars.\n\nIn 2013 we entered the hydrocarbons sector, securing a production-sharing agreement in Chad\'s Doba Basin. Today, 12,000 barrels of crude oil leave our fields every day via the Chad–Cameroon Export Pipeline. Three commodities, one integrated platform — and the diversification that creates lasting resilience.',
   about_cta_label: 'Read Our Full Story', about_cta_url: '/about',
   sectors_headline:      'Three Commodities. One Integrated Strategy.',
