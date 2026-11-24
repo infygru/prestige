@@ -33,7 +33,7 @@ const TIMELINE = [
 
 const LEADERSHIP = [
   { name: 'Henri N\'TAKPE',            role: 'Founder & CEO',     tenure: 'Since 2009',     image: '/team/henri.jpg',   href: '/about/leadership/henri',  objectPos: 'top' },
-  { name: 'Faouly Cédric Eddie David', role: 'Managing Director', tenure: 'Since Jan 2025', image: '/team/cedric.jpeg', href: '/about/leadership/cedric', objectPos: 'center 15%' },
+  { name: 'Faouly Cédric Eddie David', role: 'Managing Director', tenure: 'Since Jan 2025', image: '/team/cedric.jpeg', href: '/about/leadership/cedric', objectPos: 'center top' },
 ];
 
 export default async function AboutPage() {

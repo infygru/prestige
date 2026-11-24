@@ -105,7 +105,7 @@ export default function CedricProfilePage() {
                   alt="Faouly Cédric Eddie David"
                   fill
                   className="object-cover"
-                  style={{ objectPosition: 'center 15%' }}
+                  style={{ objectPosition: 'center top' }}
                   sizes="260px"
                   priority
                 />
