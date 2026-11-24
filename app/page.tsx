@@ -17,8 +17,8 @@ import {
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'Critical Minerals | Industrial Scale Mining',
-  description: 'Prestige Mining — world-class extraction of iron ore, copper, gold and nickel across Australia, West Africa, and beyond.',
+  title: 'Antimony, Gold & Oil Production | Central Africa',
+  description: 'Prestige Mining & Energy — high-grade antimony mining, gold production, and crude oil in Central Africa, supplying critical minerals and hydrocarbons to global markets.',
 };
 
 const fetchHP       = cache(getHomepageData);
@@ -32,63 +32,63 @@ const fetchGallery  = cache(getGalleryItems);
 
 const FB_HP: HomepageData = {
   id: 1,
-  hero_headline: 'Unearthing Resources.\nShaping Tomorrow.',
-  hero_subheadline: 'From the Pilbara to West Africa — Prestige Mining extracts iron ore, copper, gold, and nickel at industrial scale, with zero-compromise standards on safety, efficiency, and environmental stewardship.',
+  hero_headline: 'Antimony, Gold & Oil.\nCentral Africa.',
+  hero_subheadline: 'From N\'Djamena to global markets — Prestige Mining & Energy extracts high-grade antimony, mines gold, and produces crude oil in Central Africa, supplying critical minerals and hydrocarbons to buyers worldwide.',
   hero_video_url: null, hero_background_image: null,
-  hero_cta_primary_label:   'Explore Mining', hero_cta_primary_url:   '/mining',
-  hero_cta_secondary_label: 'Our Story',      hero_cta_secondary_url: '/about',
-  about_overline:  'Since 1984',
-  about_headline:  'From One Mine to Four Countries',
-  about_body: 'Founded in Perth in 1984, Prestige Mining began with a single open-cut iron ore operation in the Pilbara. A decade of disciplined reinvestment expanded us into copper in Zambia, gold in Ghana, and thermal coal in Indonesia — before the 2010s brought a decisive pivot toward clean energy.\n\nToday, our renewable portfolio generates more electricity than our mine sites consume. The surplus — sold to regional grids under long-term PPAs — has become one of our fastest-growing revenue streams, and a template for how resource companies can lead, not merely adapt to, the energy transition.',
+  hero_cta_primary_label:   'Antimony Mining', hero_cta_primary_url:   '/mining',
+  hero_cta_secondary_label: 'Oil & Energy',    hero_cta_secondary_url: '/energy',
+  about_overline:  'Est. 2009',
+  about_headline:  'Three Commodities. One Integrated Strategy.',
+  about_body: 'Founded in N\'Djamena in 2009, Prestige Mining & Energy built its foundation on high-grade antimony in Chad\'s Moyen-Chari region — one of Central Africa\'s most consistent antimony belts. Our two processing plants produce over 6,000 tonnes of concentrate per year at purities exceeding 95% Sb.\n\nIn 2015 we expanded into gold, securing exploration licences in proven gold corridors across Central Africa. Our gold operations now produce 48,000 troy ounces per year, supplying refineries in Dubai, Switzerland, and South Africa with certified doré bars.\n\nIn 2013 we entered the hydrocarbons sector, securing a production-sharing agreement in Chad\'s Doba Basin. Today, 12,000 barrels of crude oil leave our fields every day via the Chad–Cameroon Export Pipeline. Three commodities, one integrated platform — and the diversification that creates lasting resilience.',
   about_cta_label: 'Read Our Full Story', about_cta_url: '/about',
-  sectors_headline:      'Two businesses. One integrated model.',
-  sectors_description:   'Mining generates the raw materials the world needs. Energy powers the transition to a lower-carbon economy. Prestige operates both — and the intersection is where we create our greatest value.',
-  operations_headline:   'Scale you can measure',
-  operations_description:'From the Pilbara to West Africa, our operations run 24 hours a day with autonomous technology and real-time data driving every decision.',
+  sectors_headline:      'Three Commodities. One Integrated Strategy.',
+  sectors_description:   'Antimony is a critical mineral in rising demand for flame retardants, batteries, and defence. Gold provides stable, high-margin revenue tied to enduring global demand. Oil powers economies and generates the cash flow that funds our growth. Prestige operates all three — and the balance is where we create our greatest resilience.',
+  operations_headline:   'Performance by the Numbers',
+  operations_description:'From the Moyen-Chari antimony belt to our gold fields and the Doba oil basin — our operations run around the clock with disciplined management and real-time production data at every level.',
   gallery_headline:      'Inside Our Operations',
   insights_headline:     'News, Research & Perspectives',
 };
 
 const FB_IMGS: SiteImages = {
   id: 1,
-  hero_background:       'https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=1600&q=85',
+  hero_background:       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=90',
   hero_overlay_image:    null,
-  about_image:           'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=85',
+  about_image:           'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=85',
   mining_sector_image:   'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80',
-  energy_sector_image:   'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80',
+  energy_sector_image:   'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80',
   operations_background: null,
   cta_background:        null,
 };
 
 const FB_STATS: OperationStat[] = [
-  { id: 1, status: 'published', sort: 1, value: '4',      unit: 'Countries',  label: 'Global Presence',       description: null, icon_image: null },
-  { id: 2, status: 'published', sort: 2, value: '48',     unit: 'Mt/yr',      label: 'Extraction Capacity',    description: null, icon_image: null },
-  { id: 3, status: 'published', sort: 3, value: '2.4',    unit: 'GW',         label: 'Clean Energy Portfolio', description: null, icon_image: null },
-  { id: 4, status: 'published', sort: 4, value: '12,000', unit: '+',          label: 'Employees Worldwide',    description: null, icon_image: null },
+  { id: 1, status: 'published', sort: 1, value: '6',  unit: 'Kt/yr',    label: 'Antimony Output',    description: null, icon_image: null },
+  { id: 2, status: 'published', sort: 2, value: '48', unit: 'Koz/yr',   label: 'Gold Production',    description: null, icon_image: null },
+  { id: 3, status: 'published', sort: 3, value: '12', unit: 'K bbl/d',  label: 'Oil Production',     description: null, icon_image: null },
+  { id: 4, status: 'published', sort: 4, value: '5',  unit: '+',        label: 'Active Sites',       description: null, icon_image: null },
 ];
 
 const FB_SERVICES: Service[] = [
-  { id: 1, status: 'published', sort: 1, featured: true, title: 'Open-Cut Extraction',      slug: 'open-cut-extraction', sector: 'mining', short_description: 'Autonomous truck fleets, precision blast design, and real-time ore-grade control across 12 active pit complexes in Australia and West Africa.', description: '', cover_image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
-  { id: 2, status: 'published', sort: 2, featured: true, title: 'Ore Processing & Refining', slug: 'ore-processing',      sector: 'mining', short_description: 'HPGR comminution and selective flotation circuits purpose-built for each ore type, delivering a 94.2% average metal recovery across all six processing hubs.', description: '', cover_image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
-  { id: 3, status: 'published', sort: 3, featured: true, title: 'Mine Logistics & Port',     slug: 'mine-logistics',      sector: 'mining', short_description: 'A 320-km private rail corridor and dedicated shiploading facility at Port Hedland — achieving a 14-hour average ship turnaround with no third-party dependency.', description: '', cover_image: 'https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
-  { id: 4, status: 'published', sort: 4, featured: true, title: 'Utility-Scale Solar',       slug: 'utility-solar',       sector: 'energy', short_description: 'Bifacial panels and single-axis trackers across a 1.8 GW portfolio — with a 97% average availability factor and LCOE as low as $28/MWh.', description: '', cover_image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
-  { id: 5, status: 'published', sort: 5, featured: true, title: 'Battery Storage Systems',   slug: 'battery-storage',     sector: 'energy', short_description: 'Grid-scale BESS installations have collectively displaced 45 million litres of diesel per year across nine remote mine sites, with sub-1-second response for frequency regulation.', description: '', cover_image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
-  { id: 6, status: 'published', sort: 6, featured: true, title: 'Power Purchase Agreements', slug: 'power-purchase',      sector: 'energy', short_description: 'Bankable 10–20 year PPAs backed by our own generation assets, consistently priced $15–30/MWh below spot — with full Scope 2 decarbonisation and zero capex for the buyer.', description: '', cover_image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
+  { id: 1, status: 'published', sort: 1, featured: true, title: 'Antimony Extraction',        slug: 'antimony-extraction',  sector: 'mining', short_description: 'Three open-pit operations targeting stibnite ore with head grades above 3% Sb — controlled blasting, precise grade control, and zero dilution tolerance.', description: '', cover_image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
+  { id: 7, status: 'published', sort: 2, featured: true, title: 'Gold Mining & Processing',   slug: 'gold-mining',          sector: 'mining', short_description: 'Open-pit and alluvial gold operations with carbon-in-leach processing — delivering certified doré bars at 48,000 troy ounces per year to refineries in Dubai and Switzerland.', description: '', cover_image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
+  { id: 4, status: 'published', sort: 3, featured: true, title: 'Oil Production & Operations', slug: 'oil-production',       sector: 'energy', short_description: '12,000 barrels per day from the Doba Basin — 98% production uptime, 24 producing wells, and export via the Chad–Cameroon Pipeline to Kribi Marine Terminal.', description: '', cover_image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
+  { id: 2, status: 'published', sort: 4, featured: true, title: 'Ore Processing & Flotation', slug: 'ore-processing',        sector: 'mining', short_description: 'Two-stage froth flotation circuits delivering antimony concentrate above 95% purity at 92% recovery — consistently exceeding international buyer specifications.', description: '', cover_image: 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
+  { id: 5, status: 'published', sort: 5, featured: true, title: 'Crude Marketing & Trading',  slug: 'crude-trading',        sector: 'energy', short_description: 'Direct offtake relationships with three international trading houses — light sweet Chadian crude marketed to refiners in Europe and Asia with consistently strong netback realisations.', description: '', cover_image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
+  { id: 8, status: 'published', sort: 6, featured: true, title: 'Gold Bullion & Trading',     slug: 'bullion-trading',      sector: 'mining', short_description: 'Refined gold doré exported under LBMA-compliant chain-of-custody protocols — term offtake agreements with refiners in Dubai, Switzerland, and South Africa.', description: '', cover_image: 'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&q=80', background_image: null, icon_name: null, stats: null },
 ];
 
 const FB_INSIGHTS: PressInsight[] = [
-  { id: 1, status: 'published', published_date: '2025-07-01', title: 'Newman Processing Hub Reaches Nameplate Capacity Six Weeks Early', slug: 'wa-processing-hub-2025', category: 'press_release', excerpt: 'The $380M facility at Newman, WA, achieved its target throughput of 12 Mt/yr in Q3 2025 — a major milestone for the Pilbara expansion programme and a $22M saving on the project schedule.', body: '', cover_image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80', author: 'Corporate Affairs', featured: true },
-  { id: 2, status: 'published', published_date: '2025-06-18', title: 'Why Mine Operators Who Own Their Power Generation Are Winning on Cost', slug: 'vertical-integration', category: 'industry_insight', excerpt: 'The structural advantage is now measurable: our fully renewable-powered sites are running $4.20 per tonne below the industry average on energy costs alone — a gap that widens every year as diesel prices rise.', body: '', cover_image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80', author: 'Strategy & Research', featured: false },
-  { id: 3, status: 'published', published_date: '2025-05-30', title: 'Scope 1 Emissions Down 14% in H1 2025 — Net Zero Trajectory on Track', slug: 'sustainability-2025', category: 'sustainability', excerpt: 'The commissioning of 320 MW of new solar capacity across three Pilbara mine sites drove a 14% reduction in Scope 1 emissions for H1 2025, putting us firmly on track for our 50% interim target by 2030.', body: '', cover_image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80', author: 'ESG Office', featured: false },
+  { id: 1, status: 'published', published_date: '2026-06-15', title: 'Prestige Antimony Phase III Expansion Achieves First Ore — Output to Rise 40%', slug: 'phase-iii-antimony-expansion', category: 'press_release', excerpt: 'The third open-pit at our Moyen-Chari operation delivered first ore in Q2 2026, ahead of schedule. Phase III will increase annual antimony output from 6,000 to 8,400 tonnes per year once the flotation circuit upgrade is complete in Q4 2026.', body: '', cover_image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80', author: 'Corporate Affairs', featured: true },
+  { id: 2, status: 'published', published_date: '2026-05-20', title: 'Why Western Antimony Buyers Are Paying a Premium for Non-Chinese Supply', slug: 'antimony-supply-diversification', category: 'industry_insight', excerpt: 'With China controlling over 55% of global antimony mine output, industrial buyers — particularly in defence, flame retardants, and battery manufacturing — are actively diversifying supply chains. African producers with certified quality and reliable logistics are commanding a measurable price premium.', body: '', cover_image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80', author: 'Strategy & Research', featured: false },
+  { id: 3, status: 'published', published_date: '2026-04-10', title: 'Doba Basin Oil Output Reaches 12,000 bbl/d — New Well Programme Targets Further Growth', slug: 'oil-output-milestone', category: 'project_update', excerpt: 'Our Doba Basin operations reached the 12,000 barrels per day production milestone in March 2026, a 28% increase over the prior year. A four-well infill drilling programme approved for H2 2026 is expected to sustain plateau production through 2028.', body: '', cover_image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80', author: 'Operations Team', featured: false },
 ];
 
 const FB_GALLERY: GalleryItem[] = [
-  { id: 1, status: 'published', sort: 1, image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80', alt_text: 'Heavy machinery in open-cut pit operation', caption: 'Pilbara Open-Cut Operations', category: 'mining', span_wide: true },
-  { id: 2, status: 'published', sort: 2, image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80', alt_text: 'Industrial processing facility interior', caption: 'Newman Processing Hub', category: 'facilities', span_wide: false },
-  { id: 3, status: 'published', sort: 3, image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80', alt_text: 'Utility-scale solar farm panels', caption: 'Goldfields Solar — 400 MW', category: 'energy', span_wide: false },
-  { id: 4, status: 'published', sort: 4, image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80', alt_text: 'Workers in pre-shift safety briefing', caption: 'Pre-Shift Safety Briefing', category: 'people', span_wide: false },
-  { id: 5, status: 'published', sort: 5, image: 'https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80', alt_text: 'Port facility with shipping containers', caption: 'Port Hedland Export Terminal', category: 'facilities', span_wide: false },
-  { id: 6, status: 'published', sort: 6, image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80', alt_text: 'Grid-scale battery energy storage system', caption: 'Kalgoorlie BESS — 80 MWh', category: 'energy', span_wide: true },
+  { id: 1, status: 'published', sort: 1, image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80', alt_text: 'Open-pit antimony mine with excavators', caption: 'Moyen-Chari Antimony Open Pit', category: 'mining', span_wide: true },
+  { id: 2, status: 'published', sort: 2, image: 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&q=80', alt_text: 'Antimony ore flotation processing plant', caption: 'Antimony Flotation Plant — Site 1', category: 'facilities', span_wide: false },
+  { id: 3, status: 'published', sort: 3, image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80', alt_text: 'Oil field wellheads in the Doba Basin', caption: 'Doba Basin Oil Field Operations', category: 'energy', span_wide: false },
+  { id: 4, status: 'published', sort: 4, image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80', alt_text: 'Workers in pre-shift safety briefing at mine site', caption: 'Pre-Shift Safety Briefing', category: 'people', span_wide: false },
+  { id: 5, status: 'published', sort: 5, image: 'https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80', alt_text: 'Concentrate export at port of Douala', caption: 'Concentrate Export — Port of Douala', category: 'facilities', span_wide: false },
+  { id: 6, status: 'published', sort: 6, image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80', alt_text: 'Crude oil pipeline infrastructure in Chad', caption: 'Chad–Cameroon Export Pipeline', category: 'energy', span_wide: true },
 ];
 
 const CAT_META: Record<InsightCategory, { label: string; bg: string; color: string }> = {
@@ -146,7 +146,7 @@ function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
               {/* Floating years badge */}
               <div className="absolute -right-6 bottom-10 hidden lg:flex flex-col items-center justify-center px-6 py-5 shadow-xl"
                 style={{ background: 'linear-gradient(135deg, #007A96, #79B82A)' }}>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', lineHeight: 1 }}>40+</span>
+                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF', lineHeight: 1 }}>15+</span>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.8)', marginTop: '4px' }}>Years</span>
               </div>
             </div>
@@ -166,7 +166,7 @@ function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
 
             {/* Milestones */}
             <div className="mt-8 grid grid-cols-3 gap-4 border-y py-7" style={{ borderColor: '#F0F0F0' }}>
-              {[['1984', 'Founded'], ['22+', 'Active Sites'], ['4', 'Countries']].map(([val, lbl]) => (
+              {[['2009', 'Founded'], ['3+', 'Active Sites'], ['2', 'Countries']].map(([val, lbl]) => (
                 <div key={lbl}>
                   <div style={{
                     fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '2rem', lineHeight: 1,
@@ -204,21 +204,32 @@ function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
 function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
   const miningImg = getAssetUrl(imgs.mining_sector_image, { width: 960, height: 720, fit: 'cover', quality: 85 });
   const energyImg = getAssetUrl(imgs.energy_sector_image, { width: 960, height: 720, fit: 'cover', quality: 85 });
+  const goldImg   = 'https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=960&q=85';
 
   const sectors = [
     {
-      key: 'mining', label: 'Mining Operations', href: '/mining',
+      key: 'antimony', label: 'Antimony', href: '/mining',
       imgUrl: miningImg,
-      headline: 'From pit to port — precision at scale.',
-      items: ['Open-Cut Extraction', 'Ore Processing & Refining', 'Mine Logistics & Port'],
+      headline: 'Critical mineral from Africa to global markets.',
+      items: ['Open-Pit Antimony Extraction', 'Ore Processing & Flotation', 'Concentrate Export & Trading'],
       bg: 'linear-gradient(135deg, #071524 0%, #0D2544 100%)',
+      accentColor: '#00A8C4',
     },
     {
-      key: 'energy', label: 'Clean Energy', href: '/energy',
+      key: 'gold', label: 'Gold', href: '/gold',
+      imgUrl: goldImg,
+      headline: 'Certified doré supply from proven gold corridors.',
+      items: ['Gold Exploration & Drilling', 'Carbon-in-Leach Processing', 'Bullion & Doré Trading'],
+      bg: 'linear-gradient(135deg, #1a0f00 0%, #2d1a00 100%)',
+      accentColor: '#D4A017',
+    },
+    {
+      key: 'energy', label: 'Oil & Energy', href: '/energy',
       imgUrl: energyImg,
-      headline: 'Powering the energy transition.',
-      items: ['Utility-Scale Solar', 'Battery Storage Systems', 'Power Purchase Agreements'],
+      headline: 'Reliable crude supply from the Doba Basin.',
+      items: ['Oil Exploration & Drilling', 'Production & Operations', 'Crude Marketing & Trading'],
       bg: 'linear-gradient(135deg, #081628 0%, #0a1e38 100%)',
+      accentColor: '#79B82A',
     },
   ];
 
@@ -227,43 +238,43 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
       <div className="container-xl">
         <AnimateIn variant="blur">
           <div className="mb-14 max-w-2xl">
-            <span className="text-overline">{hp.sectors_headline ?? 'Our Sectors'}</span>
+            <span className="text-overline">Our Commodities</span>
             <span className="accent-line mt-3 mb-5" />
-            <h2 className="text-display">{hp.sectors_headline ?? 'Two Sectors. One Mission.'}</h2>
+            <h2 className="text-display">{hp.sectors_headline ?? 'Three Commodities. One Mission.'}</h2>
             <p className="mt-4 text-sm leading-loose" style={{ color: '#6B6B6B' }}>
               {hp.sectors_description}
             </p>
           </div>
         </AnimateIn>
 
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-5 lg:grid-cols-3">
           {sectors.map((s, i) => (
-            <AnimateIn key={s.key} delay={i * 0.12} direction={i === 0 ? 'left' : 'right'}>
+            <AnimateIn key={s.key} delay={i * 0.1} direction="up">
               <Link href={s.href}
                 className="group relative block overflow-hidden"
-                style={{ minHeight: '460px' }}
+                style={{ minHeight: '440px' }}
               >
                 {s.imgUrl ? (
-                  <Image src={s.imgUrl} alt={s.label} fill sizes="(min-width:1024px) 50vw, 100vw"
+                  <Image src={s.imgUrl} alt={s.label} fill sizes="(min-width:1024px) 33vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ opacity: 0.55 }}
+                    style={{ opacity: 0.5 }}
                   />
                 ) : null}
-                <div className="absolute inset-0" style={{ background: s.bg, opacity: s.imgUrl ? 0.7 : 1 }} />
+                <div className="absolute inset-0" style={{ background: s.bg, opacity: s.imgUrl ? 0.75 : 1 }} />
                 <div className="overlay-bottom" />
 
-                {/* Left orange accent bar */}
+                {/* Left accent bar */}
                 <div className="absolute left-0 top-0 h-full w-1 origin-bottom scale-y-0 transition-transform duration-500 group-hover:scale-y-100"
-                  style={{ background: 'linear-gradient(to bottom, #79B82A, #007A96)' }}
+                  style={{ background: s.accentColor }}
                 />
 
-                <div className="absolute inset-0 flex flex-col justify-between p-8 lg:p-10">
+                <div className="absolute inset-0 flex flex-col justify-between p-7 lg:p-8">
                   {/* Top: label badge */}
                   <div>
                     <span className="inline-block px-3 py-1 text-[0.6rem] font-bold tracking-widest uppercase"
                       style={{
                         fontFamily: 'var(--font-heading)',
-                        background: 'linear-gradient(135deg, #007A96, #79B82A)',
+                        background: s.accentColor,
                         color: '#FFFFFF',
                       }}>
                       {s.label}
@@ -274,7 +285,7 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                   <div>
                     <h3 style={{
                       fontFamily: 'var(--font-heading)', fontWeight: 700,
-                      fontSize: 'clamp(1.4rem, 2.5vw, 2rem)',
+                      fontSize: 'clamp(1.2rem, 2vw, 1.6rem)',
                       color: '#FFFFFF', lineHeight: 1.2, marginBottom: '1rem',
                     }}>
                       {s.headline}
@@ -282,20 +293,20 @@ function SectorsSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
                     <ul className="mb-7 space-y-2">
                       {s.items.map(item => (
                         <li key={item} className="flex items-center gap-2"
-                          style={{ fontFamily: 'var(--font-body)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.6)' }}>
-                          <ChevronRight size={12} style={{ color: '#00A8C4' }} />
+                          style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
+                          <ChevronRight size={12} style={{ color: s.accentColor }} />
                           {item}
                         </li>
                       ))}
                     </ul>
                     <div className="flex items-center gap-2 transition-all duration-200 group-hover:gap-3">
                       <span style={{
-                        fontFamily: 'var(--font-heading)', fontSize: '0.68rem', fontWeight: 700,
-                        letterSpacing: '0.12em', textTransform: 'uppercase', color: '#79B82A',
+                        fontFamily: 'var(--font-heading)', fontSize: '0.65rem', fontWeight: 700,
+                        letterSpacing: '0.12em', textTransform: 'uppercase', color: s.accentColor,
                       }}>
                         Discover More
                       </span>
-                      <ArrowRight size={14} style={{ color: '#79B82A' }} />
+                      <ArrowRight size={14} style={{ color: s.accentColor }} />
                     </div>
                   </div>
                 </div>
@@ -436,7 +447,7 @@ function StatsBand({ hp, stats }: { hp: HomepageData; stats: OperationStat[] }) 
               fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#FFFFFF',
               lineHeight: 1.1, marginTop: '0.75rem',
             }}>
-              A Global Footprint
+              Antimony, Gold &amp; Oil — By the Numbers
             </h2>
           </div>
         </AnimateIn>
@@ -470,8 +481,9 @@ function StatsBand({ hp, stats }: { hp: HomepageData; stats: OperationStat[] }) 
 
         <AnimateIn delay={0.3}>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/mining" className="btn-orange">Mining Operations <ArrowRight size={15} /></Link>
-            <Link href="/energy" className="btn-outline-white">Energy Portfolio</Link>
+            <Link href="/mining" className="btn-orange">Antimony <ArrowRight size={15} /></Link>
+            <Link href="/gold" className="btn-outline-white">Gold</Link>
+            <Link href="/energy" className="btn-outline-white">Oil &amp; Energy</Link>
           </div>
         </AnimateIn>
       </div>
@@ -679,13 +691,13 @@ function CtaBanner({ imgs }: { imgs: SiteImages }) {
               fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.1,
               letterSpacing: '-0.02em', color: '#FFFFFF',
             }}>
-              Ready to Build a More<br />
-              <span className="text-gradient-orange">Sustainable Resource Future?</span>
+              Source Antimony, Gold or<br />
+              <span className="text-gradient-orange">Discuss Crude Offtake?</span>
             </h2>
 
             <p className="mt-5 text-sm leading-loose"
               style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.5)' }}>
-              Connect with our team to discuss investment opportunities, operational partnerships, or energy supply agreements.
+              Connect with our commercial team to discuss antimony concentrate supply, gold doré offtake, crude oil trading, investment opportunities, or operational partnerships.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -719,7 +731,7 @@ export default async function HomePage() {
   const heroImgUrl =
     getAssetUrl(imgs.hero_background,    { width: 1400, height: 1000, fit: 'cover', quality: 88 }) ??
     getAssetUrl(hp.hero_background_image,{ width: 1400, height: 1000, fit: 'cover', quality: 88 }) ??
-    'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1400&q=85';
+    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=90';
 
   return (
     <>
