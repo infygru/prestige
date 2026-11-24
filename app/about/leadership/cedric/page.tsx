@@ -101,7 +101,7 @@ export default function CedricProfilePage() {
                 style={{ width: 260, height: 320, background: 'linear-gradient(135deg,#007A96,#79B82A)' }}
               >
                 <Image
-                  src="/team/cedric.jpeg"
+                  src="https://api.prestigeminingenergy.com/assets/59ae1d39-89a9-44c3-a704-8028c3966a4e?width=260&height=320&fit=cover&quality=85"
                   alt="Faouly Cédric Eddie David"
                   fill
                   className="object-cover"
