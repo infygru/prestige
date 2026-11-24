@@ -109,7 +109,9 @@ function fmtDate(iso: string) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function AboutSection({ hp, imgs }: { hp: HomepageData; imgs: SiteImages }) {
-  const imgUrl = getAssetUrl(imgs.about_image, { width: 900, height: 700, fit: 'cover', quality: 85 });
+  const imgUrl =
+    getAssetUrl(imgs.about_image, { width: 900, height: 700, fit: 'cover', quality: 85 }) ??
+    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=85';
 
   return (
     <section className="section-pad" style={{ background: '#FFFFFF' }}>
