@@ -97,7 +97,7 @@ export default function HenriProfilePage() {
                 style={{ width: 260, height: 320, background: 'linear-gradient(135deg,#007A96,#79B82A)' }}
               >
                 <Image
-                  src="https://api.prestigeminingenergy.com/assets/794194bc-1d1d-4feb-87b2-d2457d93cfee?width=260&height=320&fit=cover&quality=85"
+                  src="/team/henri.jpg"
                   alt="Henri N'TAKPE"
                   fill
                   className="object-cover object-top"

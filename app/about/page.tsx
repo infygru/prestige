@@ -32,8 +32,8 @@ const TIMELINE = [
 ];
 
 const LEADERSHIP = [
-  { name: 'Henri N\'TAKPE',            role: 'Founder & CEO',     tenure: 'Since 2009',     image: 'https://api.prestigeminingenergy.com/assets/794194bc-1d1d-4feb-87b2-d2457d93cfee?width=180&height=220&fit=cover&quality=85',   href: '/about/leadership/henri',  objectPos: 'top' },
-  { name: 'Faouly Cédric Eddie David', role: 'Managing Director', tenure: 'Since Jan 2025', image: 'https://api.prestigeminingenergy.com/assets/59ae1d39-89a9-44c3-a704-8028c3966a4e?width=180&height=220&fit=cover&quality=85', href: '/about/leadership/cedric', objectPos: 'center top' },
+  { name: 'Henri N\'TAKPE',            role: 'Founder & CEO',     tenure: 'Since 2009',     image: '/team/henri.jpg',   href: '/about/leadership/henri',  objectPos: 'top' },
+  { name: 'Faouly Cédric Eddie David', role: 'Managing Director', tenure: 'Since Jan 2025', image: '/team/cedric.jpeg', href: '/about/leadership/cedric', objectPos: 'center top' },
 ];
 
 export default async function AboutPage() {
