@@ -8,21 +8,50 @@ import type { GlobalSettings } from '@/lib/directus';
 
 const NAV = [
   {
-    label: 'Operations',
+    label: 'Antimony',
     href:  '/mining',
     sub: [
-      { label: 'Open-Cut Extraction', href: '/mining#extraction' },
-      { label: 'Ore Processing',      href: '/mining#processing' },
-      { label: 'Logistics & Port',    href: '/mining#logistics'  },
+      { label: 'Antimony Extraction',  href: '/mining#antimony-extraction' },
+      { label: 'Ore Processing',       href: '/mining#ore-processing'      },
+      { label: 'Concentrate Export',   href: '/mining#concentrate-export'  },
     ],
   },
   {
-    label: 'Energy',
+    label: 'Gold',
+    href:  '/gold',
+    sub: [
+      { label: 'Gold Exploration',  href: '/gold#gold-exploration' },
+      { label: 'Gold Processing',   href: '/gold#gold-processing'  },
+      { label: 'Bullion & Trading', href: '/gold#bullion-trading'  },
+    ],
+  },
+  {
+    label: 'Oil & Energy',
     href:  '/energy',
     sub: [
-      { label: 'Utility-Scale Solar', href: '/energy#solar'   },
-      { label: 'Battery Storage',     href: '/energy#storage' },
-      { label: 'Power Agreements',    href: '/energy#ppa'     },
+      { label: 'Oil Exploration',  href: '/energy#oil-exploration' },
+      { label: 'Oil Production',   href: '/energy#oil-production'  },
+      { label: 'Crude Trading',    href: '/energy#crude-trading'   },
+    ],
+  },
+  {
+    label: 'Others',
+    href:  '/services',
+    sub: [
+      { label: 'All Services',        href: '/services'                    },
+      { label: 'Mineral Trading',     href: '/services/mineral-trading'    },
+      { label: 'Infrastructure',      href: '/services/infrastructure'     },
+      { label: 'Project Financing',   href: '/services/project-financing'  },
+    ],
+  },
+  {
+    label: 'Sustainability',
+    href:  '/sustainability',
+    sub: [
+      { label: 'Biochar & Carbon',       href: '/sustainability#biochar'     },
+      { label: 'Solar Energy',           href: '/sustainability#solar'       },
+      { label: 'Community Investment',   href: '/sustainability#community'   },
+      { label: 'Environmental Standards',href: '/sustainability#standards'   },
     ],
   },
   { label: 'About',    href: '/about',    sub: [] },
@@ -169,7 +198,7 @@ export default function Header({ settings: _ }: HeaderProps) {
       {/* Mobile drawer */}
       <div className="lg:hidden" style={{
         overflow: 'hidden',
-        maxHeight: mobileOpen ? '26rem' : '0',
+        maxHeight: mobileOpen ? '32rem' : '0',
         transition: 'max-height 0.3s ease',
         background: '#FFFFFF',
         borderTop: mobileOpen ? '1px solid #EBEBEB' : 'none',
