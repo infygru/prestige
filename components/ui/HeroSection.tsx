@@ -1,47 +1,30 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-
-// ─── Data ──────────────────────────────────────────────────────────────────────
+import { motion } from 'framer-motion';
 
 const STATS = [
-  { end: 22,  suffix: '+',   label: 'Active Mine Sites'  },
-  { end: 48,  suffix: ' Mt', label: 'Annual Extraction'   },
-  { end: 40,  suffix: '+',   label: 'Years Operating'     },
-  { end: 4,   suffix: '',    label: 'Countries'            },
+  { end: 6,  suffix: ' Kt',  label: 'Antimony / Year' },
+  { end: 48, suffix: 'Koz', label: 'Gold / Year'      },
+  { end: 12, suffix: 'K',   label: 'Oil (bbl/d)'      },
+  { end: 5,  suffix: '+',   label: 'Active Sites'      },
 ];
 
-const COMMODITIES = ['Iron Ore', 'Copper', 'Gold', 'Nickel', 'Lithium'];
+const COMMODITIES = [
+  { label: 'Antimony', stat: '6 Kt / yr',   desc: 'Moyen-Chari Belt, Chad',    color: '#00A8C4', href: '/mining'  },
+  { label: 'Gold',     stat: '48 Koz / yr', desc: 'Certified Doré — Dubai & CH', color: '#D4A017', href: '/gold'    },
+  { label: 'Oil',      stat: '12K bbl/d',   desc: 'Doba Basin, Chad',           color: '#79B82A', href: '/energy'  },
+];
 
 const EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-// ─── Framer variants ───────────────────────────────────────────────────────────
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
-};
-
 const fadeUp = {
   hidden:  { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0,  transition: { duration: 0.7, ease: EXPO } },
+  visible: (d: number) => ({ opacity: 1, y: 0, transition: { duration: 0.7, ease: EXPO, delay: d } }),
 };
-
-const maskUp = {
-  hidden:  { y: '110%' },
-  visible: { y: '0%',   transition: { duration: 0.9, ease: EXPO } },
-};
-
-const scaleIn = {
-  hidden:  { scaleX: 0, originX: 0 },
-  visible: { scaleX: 1, originX: 0, transition: { duration: 0.65, ease: EXPO } },
-};
-
-// ─── Counting stat ─────────────────────────────────────────────────────────────
 
 function Counter({ end, suffix }: { end: number; suffix: string }) {
   const [n, setN] = useState(0);
@@ -54,351 +37,208 @@ function Counter({ end, suffix }: { end: number; suffix: string }) {
         if (f < 60) requestAnimationFrame(run); else setN(end);
       };
       requestAnimationFrame(run);
-    }, 800);
+    }, 1000);
     return () => clearTimeout(t);
   }, [end]);
   return <>{n}{suffix}</>;
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function HeroSection({ imgUrl }: { imgUrl: string }) {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  const imgY = useTransform(scrollY, [0, 600], ['0%', '12%']);
-
   return (
-    <section
-      ref={ref}
-      style={{
-        position: 'relative',
-        minHeight: 'calc(100svh - 68px)',
-        background: '#060E1A',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
+    <section style={{
+      position: 'relative',
+      height: '100vh',
+      minHeight: '620px',
+      background: '#060E1A',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
 
-      {/* ── Ghost background text — depth layer ── */}
-      <div aria-hidden="true" style={{
-        position: 'absolute',
-        bottom: '-5%',
-        right: '-1%',
-        fontFamily: 'var(--font-heading)',
-        fontWeight: 800,
-        fontSize: 'clamp(120px, 22vw, 340px)',
-        lineHeight: 1,
-        letterSpacing: '-0.05em',
-        color: 'transparent',
-        WebkitTextStroke: '1px rgba(255,255,255,0.04)',
-        pointerEvents: 'none',
-        userSelect: 'none',
-        zIndex: 0,
-      }}>
-        1984
+      {/* Background image — lighter on right so the cards read cleanly */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Image src={imgUrl} alt="Prestige Mining operations" fill priority sizes="100vw" className="object-cover" />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(4,10,20,0.52)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(4,10,20,0.88) 42%, rgba(4,10,20,0.28) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 55%, rgba(4,11,20,0.9) 100%)' }} />
       </div>
 
-      {/* ── Subtle teal glow — bottom centre ── */}
+      {/* Main content */}
       <div style={{
-        position: 'absolute', bottom: 0, left: '30%', right: '30%', height: '40%',
-        background: 'radial-gradient(ellipse at bottom, rgba(0,168,196,0.07) 0%, transparent 70%)',
-        pointerEvents: 'none', zIndex: 0,
-      }} />
+        position: 'relative', zIndex: 2, flex: 1,
+        display: 'flex', alignItems: 'center',
+        padding: '0 clamp(1.5rem, 6vw, 7rem)',
+        paddingBottom: '5.5rem',
+        gap: '4rem',
+      }}>
 
-      {/* ── Main content row ── */}
-      <div style={{ display: 'flex', flex: 1, position: 'relative', zIndex: 1 }}>
+        {/* ── LEFT: headline + CTAs ── */}
+        <div style={{ flex: '0 0 auto', maxWidth: '500px', width: '100%' }}>
 
-        {/* ══════════════ LEFT — text ══════════════ */}
-        <motion.div
-          className="hero-left-panel"
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            padding: 'clamp(2.5rem,5vw,5rem) clamp(1.5rem,5vw,5rem)',
-            paddingBottom: 'calc(clamp(2.5rem,5vw,5rem) + 5.5rem)',
-            width: '100%',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-
-          {/* Pill badge */}
-          <motion.div variants={fadeUp} style={{ marginBottom: '2.8rem' }}>
+          {/* Badge */}
+          <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible"
+            style={{ marginBottom: '1.75rem' }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              border: '1px solid rgba(0,168,196,0.3)',
-              padding: '7px 16px',
-              background: 'rgba(0,168,196,0.06)',
+              border: '1px solid rgba(0,168,196,0.35)', padding: '5px 13px',
+              background: 'rgba(0,168,196,0.07)',
             }}>
-              <span style={{
-                width: '6px', height: '6px', borderRadius: '50%',
-                background: '#00A8C4', display: 'inline-block', flexShrink: 0,
-              }} />
-              <span style={{
-                fontFamily: 'var(--font-heading)', fontSize: '0.55rem', fontWeight: 700,
-                letterSpacing: '0.24em', textTransform: 'uppercase', color: '#00A8C4',
-              }}>
-                Critical Minerals · Est. 1984
+              <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00A8C4', flexShrink: 0 }} />
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#00A8C4' }}>
+                Est. 2009 · N&apos;Djamena, Chad · Central Africa
               </span>
             </span>
           </motion.div>
 
-          {/* Headline — three distinct text treatments */}
-          <h1 style={{ margin: 0, fontFamily: 'var(--font-heading)', fontWeight: 800, lineHeight: 0.95, letterSpacing: '-0.04em' }}>
+          {/* Headline — tightened from 5rem max → 3rem max */}
+          <motion.h1
+            custom={0.14}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            style={{ margin: '0 0 1.1rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '-0.025em', lineHeight: 1.1 }}
+          >
+            <span style={{ display: 'block', fontSize: 'clamp(1.8rem, 3vw, 3rem)', color: '#FFFFFF' }}>
+              Central Africa&apos;s
+            </span>
+            <span style={{ display: 'block', fontSize: 'clamp(1.8rem, 3vw, 3rem)', color: '#00A8C4' }}>
+              Resource Company.
+            </span>
+          </motion.h1>
 
-            {/* Line 1: solid white — biggest impact */}
-            <div style={{ overflow: 'hidden' }}>
-              <motion.span variants={maskUp} style={{
-                display: 'block',
-                fontSize: 'clamp(3rem, 6vw, 7rem)',
-                color: '#FFFFFF',
-              }}>
-                Precision
-              </motion.span>
-            </div>
+          {/* Accent line */}
+          <motion.div custom={0.26} variants={fadeUp} initial="hidden" animate="visible"
+            style={{ height: '2px', width: '44px', background: 'linear-gradient(to right,#00A8C4,#79B82A)', marginBottom: '1.1rem' }} />
 
-            {/* Line 2: solid white */}
-            <div style={{ overflow: 'hidden' }}>
-              <motion.span variants={maskUp} style={{
-                display: 'block',
-                fontSize: 'clamp(3rem, 6vw, 7rem)',
-                color: '#FFFFFF',
-              }}>
-                Extraction.
-              </motion.span>
-            </div>
-
-            {/* Line 3: teal — colour punch */}
-            <div style={{ overflow: 'hidden' }}>
-              <motion.span variants={maskUp} style={{
-                display: 'block',
-                fontSize: 'clamp(1.8rem, 3.2vw, 3.8rem)',
-                color: '#00A8C4',
-                marginTop: '0.15em',
-              }}>
-                Global Scale.
-              </motion.span>
-            </div>
-
-          </h1>
-
-          {/* Teal rule — draws from left */}
-          <motion.div variants={scaleIn} style={{
-            height: '2px', width: '44px',
-            background: 'linear-gradient(to right, #00A8C4, #79B82A)',
-            margin: '2.2rem 0',
-          }} />
-
-          {/* Body copy */}
-          <motion.p variants={fadeUp} style={{
-            fontFamily: 'var(--font-body)', fontSize: '0.92rem',
-            lineHeight: 1.9, color: 'rgba(255,255,255,0.48)',
-            maxWidth: '400px', margin: '0 0 2.5rem',
+          {/* Description */}
+          <motion.p custom={0.36} variants={fadeUp} initial="hidden" animate="visible" style={{
+            fontFamily: 'var(--font-body)', fontSize: 'clamp(0.82rem, 1.1vw, 0.93rem)',
+            lineHeight: 1.85, color: 'rgba(255,255,255,0.48)',
+            marginBottom: '1.9rem', maxWidth: '420px',
           }}>
-            From the Pilbara to West Africa — Prestige Mining extracts iron ore,
-            copper, gold, and nickel at industrial scale.
+            Extracting high-grade antimony, gold doré, and crude oil from Chad — supplying
+            critical minerals and hydrocarbons to buyers across Europe, Asia, and the Middle East.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={fadeUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginBottom: '2.5rem' }}>
-            <Link href="/mining" className="btn-primary">
-              Explore Mining <ArrowRight size={14} />
+          <motion.div custom={0.46} variants={fadeUp} initial="hidden" animate="visible"
+            style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
+            <Link href="/about" className="btn-primary"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
+              About Us <ArrowRight size={13} />
             </Link>
-            <Link href="/about" className="btn-dark" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              Our Story <ArrowUpRight size={13} />
+            <Link href="/contact" className="btn-dark"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
+              Contact Us <ArrowUpRight size={12} />
             </Link>
-          </motion.div>
-
-          {/* Commodity strip */}
-          <motion.div variants={fadeUp} style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-            {COMMODITIES.map((c, i) => (
-              <span key={c} style={{
-                fontFamily: 'var(--font-heading)', fontSize: '0.58rem', fontWeight: 600,
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: i === 0 ? '#79B82A' : 'rgba(255,255,255,0.25)',
-              }}>
-                {c}{i < COMMODITIES.length - 1 &&
-                  <span style={{ marginLeft: '10px', color: 'rgba(255,255,255,0.1)' }}>·</span>}
-              </span>
-            ))}
-          </motion.div>
-
-        </motion.div>
-
-        {/* ══════════════ RIGHT — framed editorial photo ══════════════ */}
-        <div
-          className="hidden lg:flex"
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '3rem 3.5rem 8rem 1rem',
-            position: 'relative',
-          }}
-        >
-
-          {/* Photo frame — the contained box, not full bleed */}
-          <motion.div
-            initial={{ clipPath: 'inset(100% 0 0 0)' }}
-            animate={{ clipPath: 'inset(0% 0 0 0)' }}
-            transition={{ duration: 1.1, delay: 0.55, ease: EXPO }}
-            style={{
-              position: 'relative',
-              width: '100%',
-              height: 'calc(100svh - 68px - 8rem)',
-              outline: '1px solid rgba(0,168,196,0.22)',
-              outlineOffset: '0px',
-              overflow: 'hidden',
-            }}
-          >
-            {/* Parallax image inside the frame */}
-            <motion.div style={{ y: imgY, position: 'absolute', inset: '-12% 0' }}>
-              <Image
-                src={imgUrl}
-                alt="Prestige Mining operations"
-                fill
-                priority
-                sizes="44vw"
-                className="object-cover"
-              />
-            </motion.div>
-
-            {/* Bottom dark gradient to blend with stat card */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,26,0.75) 100%)',
-              zIndex: 1,
-            }} />
-
-            {/* Teal bottom accent on photo frame */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1.2, delay: 1.1, ease: EXPO }}
-              style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0,
-                height: '3px', zIndex: 2,
-                background: 'linear-gradient(to right, #00A8C4, #79B82A)',
-                transformOrigin: 'left',
-              }}
-            />
-          </motion.div>
-
-          {/* ── Floating stat card — overlaps left panel boundary ── */}
-          <motion.div
-            initial={{ x: 40, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.35, ease: EXPO }}
-            style={{
-              position: 'absolute',
-              bottom: '7.5rem',
-              left: '-1.5rem',
-              background: '#00A8C4',
-              padding: '1.4rem 2rem',
-              zIndex: 10,
-              boxShadow: '0 24px 60px rgba(0,168,196,0.35)',
-            }}
-          >
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontWeight: 800,
-              fontSize: '2.4rem', lineHeight: 1, letterSpacing: '-0.04em',
-              color: '#FFFFFF',
+            <Link href="/sustainability" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '5px',
+              fontFamily: 'var(--font-heading)', fontSize: '0.67rem', fontWeight: 700,
+              letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.32)',
+              textDecoration: 'none',
             }}>
-              48 Mt
-            </div>
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontSize: '0.52rem', fontWeight: 700,
-              letterSpacing: '0.2em', textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.72)', marginTop: '6px',
-            }}>
-              Annual Extraction
-            </div>
-          </motion.div>
-
-          {/* ── Secondary floating card — top right of photo ── */}
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.7, delay: 1.5, ease: EXPO }}
-            style={{
-              position: 'absolute',
-              top: '4.5rem',
-              right: '4rem',
-              background: 'rgba(6,14,26,0.88)',
-              backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.09)',
-              padding: '1rem 1.4rem',
-              zIndex: 10,
-            }}
-          >
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontWeight: 800,
-              fontSize: '1.5rem', lineHeight: 1, letterSpacing: '-0.03em',
-              color: '#FFFFFF',
-            }}>
-              22+
-            </div>
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontSize: '0.5rem', fontWeight: 700,
-              letterSpacing: '0.18em', textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.4)', marginTop: '4px',
-            }}>
-              Active Sites
-            </div>
+              Sustainability <ArrowUpRight size={11} />
+            </Link>
           </motion.div>
 
         </div>
 
+        {/* ── RIGHT: commodity + sustainability cards ── */}
+        <div style={{
+          flex: 1, marginLeft: 'auto',
+          display: 'flex', flexDirection: 'column', gap: '8px',
+          maxWidth: '320px',
+        }}
+          className="hidden lg:flex"
+        >
+          {COMMODITIES.map((c, i) => (
+            <motion.div key={c.label} custom={0.38 + i * 0.1} variants={fadeUp} initial="hidden" animate="visible">
+              <Link href={c.href} style={{ textDecoration: 'none', display: 'block' }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  padding: '13px 16px',
+                  background: 'rgba(255,255,255,0.05)',
+                  backdropFilter: 'blur(14px)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderLeft: `3px solid ${c.color}`,
+                  transition: 'background 0.18s',
+                }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.09)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)'}
+                >
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.56rem', fontWeight: 700, letterSpacing: '0.17em', textTransform: 'uppercase', color: c.color, marginBottom: '3px' }}>
+                      {c.label}
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>
+                      {c.desc}
+                    </div>
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.05rem', color: '#FFFFFF', letterSpacing: '-0.02em', flexShrink: 0, marginLeft: '1rem' }}>
+                    {c.stat}
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+
+          {/* Sustainability card */}
+          <motion.div custom={0.68} variants={fadeUp} initial="hidden" animate="visible">
+            <Link href="/sustainability" style={{ textDecoration: 'none', display: 'block' }}>
+              <div style={{
+                padding: '11px 16px',
+                background: 'rgba(121,184,42,0.07)',
+                backdropFilter: 'blur(14px)',
+                border: '1px solid rgba(121,184,42,0.18)',
+                borderLeft: '3px solid #79B82A',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                transition: 'background 0.18s',
+              }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(121,184,42,0.13)'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'rgba(121,184,42,0.07)'}
+              >
+                <div>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.56rem', fontWeight: 700, letterSpacing: '0.17em', textTransform: 'uppercase', color: '#79B82A', marginBottom: '2px' }}>
+                    Sustainability
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', color: 'rgba(255,255,255,0.32)' }}>
+                    Biochar · Solar · Zero Harm
+                  </div>
+                </div>
+                <ArrowUpRight size={14} style={{ color: '#79B82A', flexShrink: 0 }} />
+              </div>
+            </Link>
+          </motion.div>
+        </div>
+
       </div>
 
-      {/* ── Mobile background image ── */}
-      <div className="lg:hidden" style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <Image src={imgUrl} alt="" fill priority sizes="100vw"
-          className="object-cover" style={{ opacity: 0.09 }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(6,14,26,0.9)' }} />
-      </div>
-
-      {/* ── Stats bar ── */}
+      {/* Stats bar */}
       <motion.div
-        initial={{ y: 48, opacity: 0 }}
+        initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.9, ease: EXPO }}
+        transition={{ duration: 0.8, delay: 0.85, ease: EXPO }}
         style={{
           position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 5,
           display: 'flex',
-          background: 'rgba(4,11,20,0.97)',
+          background: 'rgba(4,11,20,0.95)',
           backdropFilter: 'blur(20px)',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid rgba(255,255,255,0.07)',
         }}
       >
         {STATS.map((s, i) => (
-          <div
-            key={s.label}
-            style={{
-              flex: 1, padding: '1.15rem 1.4rem',
-              borderRight: i < STATS.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-              transition: 'background 0.25s',
-            }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(0,168,196,0.07)'}
+          <div key={s.label} style={{
+            flex: 1, padding: '1.05rem 1.2rem',
+            borderRight: i < STATS.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+            transition: 'background 0.2s',
+          }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(0,168,196,0.08)'}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
           >
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontWeight: 800,
-              fontSize: 'clamp(1rem, 1.8vw, 1.45rem)',
-              lineHeight: 1, letterSpacing: '-0.02em', color: '#FFFFFF',
-            }}>
+            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'clamp(0.95rem,1.6vw,1.3rem)', lineHeight: 1, color: '#FFFFFF' }}>
               <Counter end={s.end} suffix={s.suffix} />
             </div>
-            <div style={{
-              fontFamily: 'var(--font-heading)', fontSize: '0.5rem', fontWeight: 600,
-              letterSpacing: '0.16em', textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.3)', marginTop: '5px',
-            }}>
+            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.5rem', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginTop: '5px' }}>
               {s.label}
             </div>
           </div>
