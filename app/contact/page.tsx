@@ -16,8 +16,8 @@ export default async function ContactPage() {
   const settings = await getGlobalSettings().catch(() => null);
 
   const email   = settings?.contact_email   ?? 'info@prestigeminingenergy.com';
-  const phone   = settings?.contact_phone   ?? '+61 8 9000 0000';
-  const address = settings?.hq_address      ?? 'Level 28, Exchange Tower, 2 The Esplanade, Perth WA 6000, Australia';
+  const phone   = settings?.contact_phone   ?? '+225 54 59 59 59';
+  const address = settings?.hq_address      ?? 'Rock Golhor Immeuble Pierre Brock, BP 5665, N\'Djamena, Tchad';
 
   return (
     <>
@@ -73,9 +73,10 @@ export default async function ContactPage() {
                   </label>
                   <select name="enquiry_type" className="form-input appearance-none">
                     <option value="">Select an option…</option>
-                    <option value="mining_partnership">Mining Partnership</option>
-                    <option value="energy_ppa">Energy / PPA Enquiry</option>
+                    <option value="antimony_offtake">Antimony Offtake / Purchase</option>
+                    <option value="oil_offtake">Oil / Crude Offtake</option>
                     <option value="investment">Investment Enquiry</option>
+                    <option value="technical_partnership">Technical Partnership</option>
                     <option value="media">Media Enquiry</option>
                     <option value="careers">Careers</option>
                     <option value="other">Other</option>
@@ -109,15 +110,16 @@ export default async function ContactPage() {
                 <div className="p-7" style={{ background: '#F5F5F5' }}>
                   <span className="text-overline mb-4 block">Contact Information</span>
                   <div className="space-y-4">
-                    <a href={`mailto:${email}`} className="flex items-start gap-3 group">
+                    <div className="flex items-start gap-3">
                       <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                         <Mail size={14} style={{ color: '#FFFFFF' }} />
                       </div>
                       <div>
                         <p style={{ fontFamily: 'var(--font-heading)', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#BDBDBD' }}>Email</p>
-                        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: '#00A8C4', marginTop: '1px' }}>{email}</p>
+                        <a href={`mailto:${email}`} style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: '#00A8C4', marginTop: '1px', display: 'block' }}>{email}</a>
+                        <a href="mailto:henri.n@prestigeminingenergy.com" style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: '#00A8C4', marginTop: '3px', display: 'block' }}>henri.n@prestigeminingenergy.com</a>
                       </div>
-                    </a>
+                    </div>
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center" style={{ background: 'linear-gradient(135deg,#007A96,#79B82A)' }}>
                         <Phone size={14} style={{ color: '#FFFFFF' }} />

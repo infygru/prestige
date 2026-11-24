@@ -6,24 +6,24 @@ import type { GlobalSettings } from '@/lib/directus';
 interface FooterProps { settings: GlobalSettings | null; }
 
 const LINKS = {
-  Operations: [
-    { label: 'Open-Cut Extraction',   href: '/mining#extraction' },
-    { label: 'Ore Processing',        href: '/mining#processing' },
-    { label: 'Mine Logistics & Port', href: '/mining#logistics'  },
-    { label: 'All Mining Services',   href: '/mining'            },
+  Mining: [
+    { label: 'Antimony Extraction',  href: '/mining#antimony-extraction' },
+    { label: 'Ore Processing',       href: '/mining#ore-processing'      },
+    { label: 'Concentrate Export',   href: '/mining#concentrate-export'  },
+    { label: 'All Mining Services',  href: '/mining'                     },
   ],
-  Energy: [
-    { label: 'Utility-Scale Solar',   href: '/energy#solar'   },
-    { label: 'Battery Storage',       href: '/energy#storage' },
-    { label: 'Power Agreements',      href: '/energy#ppa'     },
-    { label: 'All Energy Services',   href: '/energy'         },
+  'Oil & Energy': [
+    { label: 'Oil Exploration',  href: '/energy#oil-exploration' },
+    { label: 'Oil Production',   href: '/energy#oil-production'  },
+    { label: 'Crude Trading',    href: '/energy#crude-trading'   },
+    { label: 'All Energy',       href: '/energy'                 },
   ],
   Company: [
-    { label: 'About Us',       href: '/about'                },
-    { label: 'Sustainability', href: '/about#sustainability' },
-    { label: 'Careers',        href: '/careers'              },
-    { label: 'Insights',       href: '/insights'             },
-    { label: 'Contact',        href: '/contact'              },
+    { label: 'About Us',       href: '/about'           },
+    { label: 'Sustainability', href: '/sustainability'   },
+    { label: 'Careers',        href: '/careers'         },
+    { label: 'Insights',       href: '/insights'        },
+    { label: 'Contact',        href: '/contact'         },
   ],
 };
 
@@ -31,8 +31,8 @@ export default function Footer({ settings }: FooterProps) {
   const year  = new Date().getFullYear();
   const name  = settings?.site_name     ?? 'Prestige Mining and Energy';
   const email = settings?.contact_email ?? 'info@prestigeminingenergy.com';
-  const phone = settings?.contact_phone ?? '+61 8 9000 0000';
-  const addr  = settings?.hq_address    ?? '1 Exchange Plaza, Perth WA 6000, Australia';
+  const phone = settings?.contact_phone ?? '+225 54 59 59 59';
+  const addr  = settings?.hq_address    ?? 'Rock Golhor Immeuble Pierre Brock, BP 5665, N\'Djamena, Tchad';
 
   return (
     <footer style={{ background: '#071524' }}>
@@ -67,15 +67,16 @@ export default function Footer({ settings }: FooterProps) {
               color: 'rgba(255,255,255,0.6)',
               maxWidth: '260px', margin: '0 0 24px',
             }}>
-              {settings?.site_tagline ?? 'Industrial Excellence. Sustainable Future.'}
+              {settings?.site_tagline ?? 'Responsible Resource Extraction. Sustainable Value.'}
             </p>
 
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={13} style={{ color: '#00A8C4', flexShrink: 0 }} />
-                <a href={`mailto:${email}`} className="footer-contact-link">
-                  {email}
-                </a>
+              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <Mail size={13} style={{ color: '#00A8C4', flexShrink: 0, marginTop: '2px' }} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <a href={`mailto:${email}`} className="footer-contact-link">{email}</a>
+                  <a href="mailto:henri.n@prestigeminingenergy.com" className="footer-contact-link">henri.n@prestigeminingenergy.com</a>
+                </div>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Phone size={13} style={{ color: '#00A8C4', flexShrink: 0 }} />
