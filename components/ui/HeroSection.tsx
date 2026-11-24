@@ -7,10 +7,10 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const STATS = [
-  { end: 6,  suffix: ' Kt',  label: 'Antimony / Year' },
-  { end: 48, suffix: 'Koz', label: 'Gold / Year'      },
-  { end: 12, suffix: 'K',   label: 'Oil (bbl/d)'      },
-  { end: 5,  suffix: '+',   label: 'Active Sites'      },
+  { end: 15, suffix: '+',   label: 'Years in Africa'       },
+  { end: 95, suffix: '%+',  label: 'Concentrate Purity'    },
+  { end: 85, suffix: '%',   label: 'National Workforce'    },
+  { end: 5,  suffix: '+',   label: 'Active Sites'          },
 ];
 
 const COMMODITIES = [
